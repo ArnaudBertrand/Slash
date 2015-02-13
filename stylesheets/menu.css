@@ -1,0 +1,45 @@
+.menu{
+	background-color:#4B3592;
+	color:white;
+	height:100px;
+	width:100%;
+}
+
+.logo{
+	background-color:#155995;
+	color:white;
+	height:80px;
+	margin-top:10px;
+	padding:12px 40px;
+}
+
+.searchSlash{
+	background-color:#fff;
+	color:black;
+	height:80px;
+	margin-top:10px;
+	font-size:23px;
+}
+
+.menu > div >.puce{
+	position:absolute;
+	margin-top:75px;
+	border-radius:100px 100px 100px 100px;
+	background-color:#4B3592;
+	border:2px solid black;
+	height:50px;
+	width:50px;
+	text-align:center;
+	padding-top:7px
+}
+
+.active{
+	background-color:red!important;
+}
+
+.header{
+	position:absolute;
+	background-color:#4B3592;
+	height:100px;
+	width:100%;
+}
