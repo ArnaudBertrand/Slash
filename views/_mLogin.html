@@ -11,17 +11,40 @@
 						<p>User connected</p>
 					{{else}}
 						{{#if signupForm}}
-							{{> smallSignUp}}
+							{{> mSignUp}}
 						{{else}}
-							{{> smallLogin}}
+							{{> mSignIn}}
 						{{/if}}
 					{{/if}}
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-success pull-right" id="valid_selection">Validate</button>
 				</div>
 			</div>
 		</div>
 	</div>
+</template>
+
+<template name="mSignIn">
+  <form class="mSignInForm">
+    <input type="text" name="username" placeholder="Username" /><br />
+    <input type="password" name="password" placeholder="Password"/><br />
+    <p>{{ loginInfo }}</p>
+    <button type="button" class="cancelButton">Cancel</button>
+    <button type="button" class="signupButton">Sign up</button>
+    <input type="submit" value="Sign in" />
+  </form>
+</template>
+
+<template name="mSignUp">
+  <form class="mSignUpForm">
+    <input type="text" name="username" placeholder="Username" /><span>{{usernameInfo}}</span><br />
+
+    <input type="password" name="password" placeholder="Password"/><span>{{passwordInfo}}</span><br />
+
+    <input type="password" name="confirmPassword" placeholder="Confirm password"/><br />
+
+    <input type="email" name="email" placeholder="E-mail address"/>
+    <span>{{emailInfo}}</span><br />
+
+    <button type="button" class="cancelButton">Cancel</button>
+    <input type="submit" value="Sign up" id="signupButton" />
+  </form>
 </template>
