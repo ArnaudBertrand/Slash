@@ -1,0 +1,38 @@
+<template name="mSignIn">
+	<div class="modal fade" id="mSignIn" style="color:black">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title">Data selection <span class="fa fa-user fa-2x"></span></h4>
+				</div>
+
+				<div class="modal-body">
+					{{#if errorMessages}}
+						<div class="list-errors">
+							{{#each errorMessages}}
+								<div class="list-item">{{this}}</div>
+							{{/each}}
+						</div>
+					{{/if}}
+
+					<form class="mSignInForm">
+						<div class="input-symbol {{errorClass 'email'}}">
+							<input type="text" name="username" placeholder="Username or Email" />
+							<span class="icon-email" title="Username or Email"></span>
+						</div>
+
+						<div class="input-symbol {{errorClass 'password'}}">
+							<input type="password" name="password" placeholder="Password" />
+							<span class="icon-lock" title="Password"></span>
+						</div>
+
+						<input type="submit" value="Sign in" />
+						<a class="link-auth-alt signUp">Need an account? Join Now.</a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

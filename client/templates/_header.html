@@ -2,9 +2,9 @@
 	<div class="logo">
 		<i class="fa fa-weixin fa-4x"></i>
 	</div>
-	<div class="searchSlash">
-		<input type="text" class="form-control" name="search_slash" placeholder="//">
-	</div>
+	<form class="searchSlash">
+		<input type="text" class="form-control" name="searchSlash" placeholder="//">
+	</form>
 	<div class="headerRight">
 		{{#if currentUser }}
 			<h2>Hello {{ currentUser.username }}</h2>
@@ -17,7 +17,4 @@
 			</div>
 		{{/each}}
 	</div>
-</template>
-
-<template name="menu">
 </template>

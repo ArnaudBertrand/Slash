@@ -1,0 +1,25 @@
+<template name="appBody">
+  <header>
+    {{> header}}
+  </header>
+  
+  <div class="body">
+    <div class="row">
+        
+    </div>
+    
+    <div id="body_content" class="">
+      <div id="content-container">
+        {{#each thisArray}}
+          {{> yield}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="">@Slash2Slash</div>
+  </div>
+
+  {{> mSignIn }}
+  {{> mSignUp }}
+</template>
