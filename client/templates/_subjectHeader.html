@@ -7,8 +7,8 @@
 			<h3 class="col-md-7 text-center col-xs-7">
 				//{{ title }}
 			</h3>
-			<div class="add-new-slash col-md-1 col-xs-1">
-				<div class="btn-circle clr-info">
+			<div class="col-md-1 col-xs-1">
+				<div class="add-new-slash btn-circle clr-info">
 					<i class="fa fa-plus fa-2x"> </i>
 				</div>
 			</div>
@@ -19,4 +19,8 @@
 			</div>
 		</div>
 	</div>
+
+	{{#if showAddSlash }}
+		{{> addSlash }}
+	{{/if}}
 </template>
