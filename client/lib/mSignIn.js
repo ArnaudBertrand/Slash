@@ -38,9 +38,10 @@ Template.mSignIn.events({
     Meteor.loginWithPassword(username, password, function(error) {
       if (error) {
         return Session.set(ERRORS_KEY, {'none': error.reason});
+      } else {
+        $('#mSignIn').modal('hide');
       }
     });
-    $('#mSignIn').modal('hide');
   },
   'click .signUp': function(event){
     $('#mSignIn').modal('hide');
