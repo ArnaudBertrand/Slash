@@ -34,8 +34,6 @@ Template.mSignUp.events({
       errors.password = 'Password do not match';
     }
 
-    console.log(errors);
-
     Session.set(ERRORS_KEY, errors);
 
     if (!_.keys(errors).length) {
