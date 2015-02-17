@@ -1,38 +1,70 @@
+.front-connexion, .front-welcome{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.front-connexion{
+	width: 50%;
+	max-width: 400px;
+
+	.front-signin {
+		.panel{
+			background: rgba(255, 255, 255, 0.8);
+			box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+		}
+	}
+
+	.panel{
+		border: 1px solid #888;
+		background: rgba(255, 255, 255, 0.8);
+		box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+
+		.panel-title{
+			padding-bottom: 10px;
+		}
+	}
+
+}
+
 .front-welcome {
-    font-size: 20px;
-    font-weight: 300;
-    left: 0;
-    line-height: 22px;
-    padding: 20px;
-    text-align: left;
-    text-shadow: #000 0 1px 2px;
-    color: #abc;
-    border-radius: 4px
+	padding: 20px;
+	margin-right: 50px;
+	max-width: 600px;
+
+	color: #333;
+	text-align: left;
+	text-shadow: #000 0 1px 2px;
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 22px;
+
+	background-color: #fff;
+	border: 1px solid #888;
+
+	border-radius: 4px;	
+	h1 {
+		color: #fff;
+	}
 }
 
-.front-welcome h1 {
-    color: #fff;
-}
-
-.centered-form{
-  margin-top: -30px;
-}
-
-.centered-form .panel{
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
-}
-
-.front-signin {
-  margin-top: -162px;
-  margin-left: -750px;
-}
-
-.front-signin .panel{
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+.home{
+	padding-top: 50px;
+	text-align: center;
+	margin: 0 auto;
 }
 
 .remember-forgot {
-  margin-top: 5px;
+	margin-top: 5px;
+}
+
+@media screen and (max-width: 1100px) {
+	.front-welcome{
+		display:none;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.front-connexion{
+		width: 100%;
+	}
 }
