@@ -1,9 +1,31 @@
-<template name="profileView">	
-	<div class="row rowDedication">
-		{{> dedication }}
+<template name="profileView">
+	<div class="container">
+		<div class="row row-dedication">
+			{{> dedication }}
+		</div>
+		<div class="row user-profile-and-slash">
+			<aside class="user-profile-info">
+				{{> userProfileInfo }}
+			</aside>
+			<div class="div-slash-list">
+				{{> slashList }}
+			</div>
+		</div>
 	</div>
+</template>
 
-	<div class="row">
-		{{> slashList }}
-	</div>
+<template name="userProfileInfo">
+	<p>JohnDenis</p>
+	<img alt="My 24th Birthday!" src="https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg" />
+	<ul>
+		<li>@513@ messages</li>
+		<li>Quality: @nb@%</li>
+		{{#if isMyProfile }}
+			<li>My profile</li>
+			<li>My followers</li>
+		{{else}}
+			<li>Profile</li>
+			<li>Followers</li>
+		{{/if}}
+	</ul>
 </template>

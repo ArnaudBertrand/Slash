@@ -7,12 +7,15 @@
 	border-radius: 5px;
 	background-color: #eeeeee;
 
-	.user-info, .slash-central, .slash-social{
+
+	.slash-central, .slash-social, .user-info{
 		display: inline-block;
 		vertical-align: top;
 	}
 
 	.slash-central{
+		width: 70%;
+
 		.slash-info{
 			border-bottom: 1px solid #444444;
 			margin-bottom: 10px;
@@ -33,7 +36,8 @@
 		border-bottom: 1px solid #444444;
 		border-bottom-left-radius: 5px;
 		float: right;
-		width: 50px;
+		width: 20%;
+		max-width: 50px;
 		text-align: center;
 		background-color: red;
 
@@ -57,9 +61,10 @@
 	}
 
 	.user-info{
+		padding: 5px 15px;
+		width: 150px;
 		border-right: 1px solid #555555;
 		background-color: #bbbbbb;
-		padding: 5px 15px;
 		text-align: center;
 
 		p{
@@ -68,7 +73,15 @@
 
 		img{
 			height: 100px;
-			width: 100;
+			width: 100px;
+			border-radius: 5px 0 5px 0;
 		}
 	}
 }
+
+@media screen and (max-width: 1000px) {
+	.slash .user-info {
+		display: none;
+	}
+}
+

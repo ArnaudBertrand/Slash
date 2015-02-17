@@ -1,14 +1,13 @@
 <template name="dedication">
-	<div class="col-md-12">
-		<div class="col-md-2 col-xs-2">
-			<div class="see_dedication">
-			<i class="fa fa-share fa-4x"></i>
-			</div>
-		</div>
-		<div class="col-md-10 col-xs-10">
-			<div class="dedication">
-				{{ currentDedication }}
-			</div>
-		</div>
+	<i class="fa fa-share add-dedication-button"></i>
+	<div class="dedication">
+		<span class="dedication-text">
+			{{ currentDedication }}
+		</span>
 	</div>
+	<form class="new-dedication display-none">
+		<input type="text" placeholder="Send a dedication" class="form-control" />
+		<input type="submit" value="Send" />
+		<button class="cancel">Cancel</button>
+	</form>
 </template>

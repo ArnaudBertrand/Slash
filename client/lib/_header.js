@@ -15,7 +15,8 @@ Template.header.helpers({
 Template.header.events({
   "click .menuUser": function(event){
     if(Meteor.user()){
-      alert('User menu not developped');
+      var username = Meteor.user().username;
+      Router.go("profileView", {name: username});
     } else {
       $('#mSignIn').modal('show');
     }
