@@ -17,15 +17,13 @@
 <template name="userProfileInfo">
 	<p>JohnDenis</p>
 	<img alt="My 24th Birthday!" src="https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg" />
-	<ul>
-		<li>@513@ messages</li>
-		<li>Quality: @nb@%</li>
-		{{#if isMyProfile }}
-			<li>My profile</li>
-			<li>My followers</li>
-		{{else}}
-			<li>Profile</li>
-			<li>Followers</li>
-		{{/if}}
-	</ul>
+	<p>@513@ messages</p>
+	<p>Quality: @nb@%</p>
+	{{#if isUserProfile }}
+		<a href="{{pathFor 'profileEdit'}}">My profile</a>
+		<a>My followers</a>
+	{{else}}
+		<a>Profile</a>
+		<a>Followers</a>
+	{{/if}}
 </template>
