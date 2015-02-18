@@ -1,15 +1,15 @@
 <template name="slashList">
-	<ul class="slash-list">
-		<li class="slash">
+	<table class="slash">
+		<tr>
 			{{#if showUserInfo }}
-				<div class="user-info">
+				<td class="user-info">
 					<p>@Patati Patata@</p>
 					<img alt="My 24th Birthday!" src="https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg" />
 					<p>@messages@</p>
 					<p>@quality@</p>
-				</div>
+				</td>
 			{{/if}}
-			<div class="slash-central">
+			<td class="slash-central">
 				<div class="slash-info">
 					<i class="fa fa-thumbs-o-up"></i>@12@
 					<i class="fa fa-thumbs-o-down"></i>@1@
@@ -18,13 +18,13 @@
 				<div class="slash-message">
 					<p class="desc col-md-12">@bladazdaz dzadzad zdkiazjd zdasd dzd zad@</p>
 				</div>
-			</div>
-			<div class="slash-social">
+			</td>
+			<td class="slash-social">
 				<i class="action vote-up fa fa-thumbs-o-up"></i>
 				<i class="action vote-down fa fa-thumbs-o-down"></i>
 				<i class="action comment fa fa-comment"></i>
 				<i class="action fa fa-exclamation-triangle"></i>
-			</div>
-		</li>
-	</ul>
+			</td>
+		</tr>
+	</table>
 </template>

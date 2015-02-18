@@ -3,18 +3,10 @@
 }
 
 .slash{
-	border: 1px solid #444444;
-	border-radius: 5px;
-	background-color: #eeeeee;
-
-
-	.slash-central, .slash-social, .user-info{
-		display: inline-block;
-		vertical-align: top;
-	}
-
 	.slash-central{
-		width: 70%;
+		background-color: #eeeeee;
+		vertical-align: top;
+		width: 100%;
 
 		.slash-info{
 			border-bottom: 1px solid #444444;
@@ -32,14 +24,9 @@
 	}
 
 	.slash-social{
-		border-left: 1px solid #444444;
-		border-bottom: 1px solid #444444;
-		border-bottom-left-radius: 5px;
-		float: right;
-		width: 20%;
-		max-width: 50px;
+		width: 50px;
 		text-align: center;
-		background-color: red;
+		background-color: #2d2a49;
 
 		i {
 			padding: 5px;
@@ -55,7 +42,7 @@
 		}
 
 		i:hover{
-			color: #aaaa33;
+			color: #3f3;
 			cursor: pointer; 
 		}
 	}
@@ -64,7 +51,7 @@
 		padding: 5px 15px;
 		width: 150px;
 		border-right: 1px solid #555555;
-		background-color: #bbbbbb;
+		background-color: #839fc2;
 		text-align: center;
 
 		p{
@@ -76,6 +63,13 @@
 			width: 100px;
 			border-radius: 5px 0 5px 0;
 		}
+	}
+
+	tr > td:first-child{
+		border-radius: 25px 0 0 25px;
+	}
+	tr > td:last-child{
+		border-radius: 0 10px 10px 0;
 	}
 }
 

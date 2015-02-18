@@ -1,0 +1,101 @@
+<template name="profileComplete">
+	<div class="container">
+		<div class="panel panel-info">
+			<div class="panel-body">
+				<h3 class="panel-title">Linepo</h3>
+				<p class="text-info">Inscription <br> May 05,2014,03:00 pm </p>
+				<div class="row">
+					<div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle"> </div>
+
+					<div class=" col-md-9 col-lg-9 ">
+						<table class="table table-user-information">
+							<tbody>
+								<tr class="user-fname">
+									<td>{{firstName.name}}</td>
+									<td class="displayed">{{firstName.value}}</td>
+									<td class="edit display-none"><input type="text" value="{{firstName.value}}" class="form-control"/></td>
+									<td>
+										<button type="button" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+										</button>
+									</td>
+								</tr>
+								<tr class="user-lname">
+									<td>{{lastName.name}}</td>
+									<td class="displayed">{{lastName.value}}</td>
+									<td class="edit display-none"><input type="text" value="{{lastName.value}}" class="form-control"/></td>
+									<td>
+										<button type="button" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+										</button>
+									</td>
+								</tr>
+								<tr class="user-gender">
+									<td>{{gender.name}}</td>
+									<td class="displayed">{{gender.value}}</td>
+									<td class="edit display-none">
+										<input type="radio" name="gender" {{gender.options.male}}/> Male
+										<input type="radio" name="gender" {{gender.options.female}}/> Female
+									</td>
+									<td>
+										<button type="button" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+										</button>
+									</td>
+								</tr>
+								<tr class="user-email">
+									<td>{{email.name}}</td>
+									<td class="displayed">{{email.value}}</td>
+									<td class="edit display-none"><input type="email" value="{{email.value}}" class="form-control"/></td>
+									<td>
+										<button type="button" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+										</button>
+									</td>
+								</tr>
+								<tr class="user-phone">
+									<td>{{phone.name}}</td>
+									<td class="displayed">{{phone.value}}</td>
+									<td class="edit display-none"><input type="tel" value="{{phone.value}}" class="form-control"/></td>
+									<td>
+										<button type="button" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+										</button>
+									</td>
+								</tr>
+								<tr class="user-description">
+									<td>{{description.name}}</td>
+									<td class="displayed">{{description.value}}</td>
+									<td class="edit display-none"><textarea type="tel" class="form-control">{{description.value}}</textarea></td>
+									<td>
+										<button type="button" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<a href="#" class="btn btn-primary">Edit</a>
+						<a href="#" class="btn btn-primary">Back</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="profileItem">
+	<tr>
+		<td>{{ name }}</td>
+		<!--<td>{{ value }}</td>-->
+		<td>
+			<span class="{{id}}">{{value}}</span>
+		</td>
+		<td>
+			<button type="button" class="btn btn-default" aria-label="Left Align">
+				<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+			</button>
+		</td>
+	</tr>
+</template>

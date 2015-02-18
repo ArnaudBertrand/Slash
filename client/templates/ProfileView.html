@@ -18,12 +18,8 @@
 	<p>JohnDenis</p>
 	<img alt="My 24th Birthday!" src="https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg" />
 	<p>@513@ messages</p>
-	<p>Quality: @nb@%</p>
-	{{#if isUserProfile }}
-		<a href="{{pathFor 'profileEdit'}}">My profile</a>
-		<a>My followers</a>
-	{{else}}
-		<a>Profile</a>
-		<a>Followers</a>
-	{{/if}}
+	<p>Quality: @nb@% {{ profile.username }}</p>
+	<a class="profile">Profile</a><br />
+	<a class="following">Following</a><br />
+	<a class="followers">Followers</a>
 </template>
