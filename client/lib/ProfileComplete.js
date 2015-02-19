@@ -82,5 +82,8 @@ Template.profileComplete.events({
 			template.$('.user-description button span').removeClass('glyphicon-ok').addClass('glyphicon-edit');
 // Here is value to get			
 		}
+	},
+	'click .panel-heading .back': function(){
+		Router.go("profileView", {name: this.profileUsername});
 	}
 });
