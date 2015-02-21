@@ -4,14 +4,27 @@
         <h3>My Followers</h3>
       </div>
       <div class="row">
-      {{#each followers}}
-        {{>followerListItem}}
-      {{/each}}
+        <ul>
+          {{#each followers}}
+            {{>followerListItem}}
+          {{/each}}
+        </ul>
       </div>
   </div>
 </template>
 
 <template name="followerListItem">
+    <li>
+      <div>
+        <a href="" class="follower-pic-link"><img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a>
+        <div class="user-info">
+          <h4>{{ username }}</h4>
+          <p>{{ name }}</p>
+          <p>{{ followers }} Followers - {{following}} following</p>
+        </div>
+      </div>
+    </li>
+  <!--
   <div class="follower-info">
     <div class="thumbnail">
       <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
@@ -25,4 +38,5 @@
       </div>
     </div>
   </div>
+  -->
 </template>
