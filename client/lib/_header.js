@@ -35,5 +35,11 @@ Template.header.events({
     //var subject = Subjects.findOne(name);
     Router.go("subject",{name: name});
     return false;
+  },
+  "click .signup" : function(event){
+    $('#mSignUp').modal('show');
+  },
+  "click .signin" : function(event){
+    $('#mSignIn').modal('show');
   }
 });
