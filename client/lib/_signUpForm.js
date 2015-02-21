@@ -45,15 +45,12 @@ Template.signUpForm.events({
       }, function(error){
         if (error) {
           return Session.set(ERRORS_KEY, {'none': error.reason});
-        }// else {
-//          $('#mSignUp').modal('hide');
-//        }
+        } else {
+          $('#mSignUp').modal('hide');
+        }
       });
     }
 
     return false;
-//  },
-//  'click .cancel': function(event){
-//    $('#mSignUp').modal('hide');
   }
 });
