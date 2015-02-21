@@ -1,21 +1,29 @@
 <template name="addSlash">
-	<div class="row">
-		<form class="add-slash-form col-md-8 col-md-offset-2">
-			<textarea type="textarea" class="form-control slash-message" placeholder="Type your message">
-			</textarea>
-			<div class="timer">
-				<span>Timer: </span>
-				<input type="text" maxlength="2" placeHolder="hh" class="timer hour"/>
-				<input type="text" maxlength="2" placeHolder="mm" class="timer min"/>
-				<input type="text" maxlength="2" placeHolder="ss" class="timer sec"/>
-
-				<span>Starting in:</span>
-				<input type="text" maxlength="2" placeHolder="hh" class="delay hour"/>
-				<input type="text" maxlength="2" placeHolder="mm" class="delay min"/>
-				<input type="text" maxlength="2" placeHolder="ss" class="delay sec"/>
-			</div>
-			<i class="fa fa-camera"></i><span>Add picture</span>
-			<input type="submit" />
-		</form>
-	</div>
+	<form class="add-slash-form">
+		<table class="">
+			<tr>
+				<td class="display-add-message">
+					<div class="empty-space"></div>
+					<br>
+					
+				</td>
+				<td class="slash-central">
+					<div class="slash-info">
+						<i class="fa fa-clock-o"></i>Your message will be display until @23:05:29@
+					</div>
+					<div class="slash-add-message">
+						 <div id="editor"></div>
+					</div>
+				</td>
+				<td class="slash-social">
+					<div class="empty-space"></div>
+				</td>
+			</tr>
+			<tr>
+				<td class="display-add-message"><input type="submit" class="btn btn-success col-md-12 btn-send-slash" value="Submit"></td>
+				<td class="slash-central"></td>
+				<td class="slash-social"></td>
+			</tr>
+		</table>
+	</form>
 </template>
