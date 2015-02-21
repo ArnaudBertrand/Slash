@@ -10,13 +10,14 @@
 	<div class="headerRight">
 		{{#if currentUser }}
 			<h2>Hello {{ currentUser.username }}</h2>
+			{{#each puce}}
+				<div class="puce {{ class }}"  title='{{ title }}'>
+					<i class="{{ icon }}"></i>
+				</div>
+			{{/each}}
 		{{else}}
-			<h2>Join us !</h2>
+			<button class="signin">Sign In</button><br />
+			<button class="signup">Create an account</button>
 		{{/if}}
-		{{#each puce}}
-			<div class="puce {{ class }}"  title='{{ title }}'>
-				<i class="{{ icon }}"></i>
-			</div>
-		{{/each}}
 	</div>
 </template>
