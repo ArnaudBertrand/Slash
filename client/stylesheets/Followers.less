@@ -1,69 +1,21 @@
 .followers{
   background: #fff;
   text-align: center;
+  min-height: 100vh;
 
-  .thumbnail {
-      padding:0px;
-  }
-
-  .follower-info{
-    width: 40%;
-    display: inline-block;
-
-    .thumbnail, .panel{
-      display: inline-block;
-      height:100px;
-    }
-
-    .thumbnail{
-      height: 100px;
-      width: 100px;
-    }
-
-    .panel{
-      vertical-align: top;
-    }
-  }
-
-}
-
-.followers{
   ul {
     list-style-type: none;
     word-wrap: break-word  
   }
 
   ul > li {
-      border: 1px solid #E9EAED;
+      border: 1px solid #ddd;
       display: inline-block;
-      margin: 0px 0px 13px 13px;
-      padding: 0px 10px 0px 0px;
-      position: relative;
+      margin: 10px 10px;
       vertical-align: top;
       width: 40%;
   }
 
-/**
-  ul > li > div:after {
-    clear: both;
-    content: ".";
-    display: block;
-    font-size: 0px;
-    height: 0px;
-    line-height: 0;
-    visibility: hidden;
-  }
-
-  .follower-pic-link:after {
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      bottom: 0px;
-      content: "";
-      left: 0px;
-      position: absolute;
-      right: 0px;
-      top: 0px;
-  }
-**/
   .follower-pic-link{
     position: relative;
     float: left;
@@ -71,7 +23,6 @@
   }
 
   .follower-pic-link img{
-    border: 0px none;
     height: 100px;
     width: 100px;
   }
@@ -84,10 +35,8 @@
 }
 
 @media screen and (max-width: 800px) {
-  .followers .follower-info{
-    width: 100%;
-  }
   .followers ul > li{
-    width: 100%;    
+    width: 90%;
+    margin: 10px 0px;
   }
 }
