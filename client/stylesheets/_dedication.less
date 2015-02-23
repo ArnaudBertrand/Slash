@@ -1,24 +1,72 @@
 .row-dedication{
-	margin: 20px auto;
+	margin: 0px;
+	margin-top:5px;
+	box-shadow: 0px 2px 2px #888888;
 	text-align: center;
+	height:120px;
+	background-color:#C0BFC0;
 
 	.add-dedication-button{
 		cursor: pointer;
 	}
+	
+	.dedication-user{
+		position:relative;
+		height:120px;
+		
+		.dedication-user-info{
+			.user-info-item{
+				padding:10px 0px;
+				position:relative;
+				height:40px;
+			}
+		}
+		
+
+		
+		.dedication-user-image{
+			position:relative;
+			width:100px;
+			height:100px;
+			margin:10px;
+			border-radius:50%;
+			border:2px solid #343C47;
+			z-index:4;
+			padding:0;
+			
+			.bar-vertical{
+				position:absolute;
+				top:-12px;
+				height:120px;
+				left:50%;
+				width:1px;
+				background-color:#343C47;
+				z-index:1;
+			}
+			
+			img{
+				position:relative;
+				z-index:3;
+				border-radius:50%;
+				width:96px;
+				height:96px;
+				vertical-align:middle;
+			}
+		}
+	}
 
 	.dedication{
 		display: inline-block;
-		padding:10px;
-		width:80%;
-		max-width: 700px;
+		height:120px;
+		line-height:120px;
 
-		border:1px solid #888;
-		border-radius:20px;
-		background-color:#413E3E;
 		
 		.dedication-text{
-			padding-left: 10px;
-			color:#fff;
+			display:inline-block;
+			width:100%;
+			vertical-align:middle;
+			line-height:1.2;
+			text-align:left; /* on rétablit l'alignement du texte */ 
 		}
 	}
 

@@ -5,7 +5,11 @@
 var ERRORS_KEY = 'addNewSlashErrors';
 
 Template.addSlash.created = function() {
-  Session.set(ERRORS_KEY, {});
+	Session.set(ERRORS_KEY, {});
+	$('#editor').editable({
+		inlineMode: false,
+		buttons : ["bold","italic","underline"]
+	});
 };
 
 Template.addSlash.helpers({
