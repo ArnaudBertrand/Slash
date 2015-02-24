@@ -9,7 +9,7 @@ insecure
 accounts-password
 less
 jquery
-mizzao:bootstrap-3
-fortawesome:fontawesome
 iron:router
+fortawesome:fontawesome
+mizzao:bootstrap-3
 froala:editor
