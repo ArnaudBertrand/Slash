@@ -6,3 +6,9 @@ Template.slashList.helpers({
     return ROUTE_PROFILE_VIEW !== routeName;
   }
 });
+
+Template.slashList.events({
+	"click .picture-link": function(event){
+		Router.go("profileView",{ name: "Arnaud"});
+	}
+});

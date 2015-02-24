@@ -9,7 +9,7 @@
 	</form>
 	<div class="headerRight">
 		{{#if currentUser }}
-			<h2>Hello {{ currentUser.username }}</h2>
+			<h2 class="hello-username">Hello {{ currentUser.username }}</h2>
 			{{#each puce}}
 				<div class="puce {{ class }}"  title='{{ title }}'>
 					<i class="{{ icon }}"></i>
