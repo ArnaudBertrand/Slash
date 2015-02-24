@@ -6,8 +6,8 @@
 Template.header.helpers({
   puce: [
     { class: "menuUser", icon: "fa fa-user", title:"User page"},
-    { class: "menuMessage", icon: "fa fa-envelope-o", title:"Messages"},
-    { class: "menuNotif", icon: "fa fa-flag", title:"Notifications"},
+    //{ class: "menuMessage", icon: "fa fa-envelope-o", title:"Messages"},
+    //{ class: "menuNotif", icon: "fa fa-flag", title:"Notifications"},
     { class: "menuPowerOff", icon: "fa fa-power-off", title:"Logout"}
   ]
 });
