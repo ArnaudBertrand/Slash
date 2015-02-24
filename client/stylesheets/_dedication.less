@@ -3,8 +3,9 @@
 	margin-top:5px;
 	box-shadow: 0px 2px 2px #888888;
 	text-align: center;
-	height:120px;
-	background-color:#C0BFC0;
+	height:80px;
+	background-color:#302430;
+	color:#fff;
 
 	.add-dedication-button{
 		cursor: pointer;
@@ -12,13 +13,13 @@
 	
 	.dedication-user{
 		position:relative;
-		height:120px;
+		height:80px;
 		
 		.dedication-user-info{
 			.user-info-item{
 				padding:10px 0px;
 				position:relative;
-				height:40px;
+				height:25px;
 			}
 		}
 		
@@ -26,8 +27,8 @@
 		
 		.dedication-user-image{
 			position:relative;
-			width:100px;
-			height:100px;
+			width:60px;
+			height:60px;
 			margin:10px;
 			border-radius:50%;
 			border:2px solid #343C47;
@@ -37,7 +38,7 @@
 			.bar-vertical{
 				position:absolute;
 				top:-12px;
-				height:120px;
+				height:80px;
 				left:50%;
 				width:1px;
 				background-color:#343C47;
@@ -48,17 +49,27 @@
 				position:relative;
 				z-index:3;
 				border-radius:50%;
-				width:96px;
-				height:96px;
+				width:54px;
+				height:54px;
 				vertical-align:middle;
+			}
+			
+			.img-change-1{
+				transform: rotateY(90deg);
+				transition: all 500ms linear;
+			}
+			
+			.img-change-2{
+				transform: rotateY(0deg);
+				transition: all 500ms linear;
 			}
 		}
 	}
 
 	.dedication{
 		display: inline-block;
-		height:120px;
-		line-height:120px;
+		height:80px;
+		line-height:80px;
 
 		
 		.dedication-text{
