@@ -32,3 +32,14 @@ Template.dedication.events({
 		return false;
 	}
 })
+
+Template.dedication.rendered = function() {
+	$('.dedication').slick({
+		dots: false,
+		arrows: false,
+		autoplay: true,
+		autoplaySpeed: 5000,
+		easing : true,
+		speed : 700,
+	});
+}
