@@ -47,6 +47,7 @@ Template.signInForm.events({
     return false;
   },
   'click .remember-forgot .forgot': function(){
+    $('#mSignIn').modal('show');
     Session.set(PASSWORD_FORGOT, true);
   }
 });
