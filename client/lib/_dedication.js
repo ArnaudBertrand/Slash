@@ -16,10 +16,14 @@ Template.dedication.events({
 		return false;
 	},*/
 	'click .display-add-dedication': function(event,template){
-		$('.new-dedication').removeClass('hidden');
-		$('.dedication').addClass('hidden');
-		$('.btn-show-add-dedication').addClass('hidden');
-		$('.btn-action-add-dedication').removeClass('hidden');
+		if(Meteor.user()){
+			$('.new-dedication').removeClass('hidden');
+			$('.dedication').addClass('hidden');
+			$('.btn-show-add-dedication').addClass('hidden');
+			$('.btn-action-add-dedication').removeClass('hidden');			
+		} else {
+			$('#mSignIn').modal('show');
+		}
 	},
 	'click .btn-action-add-dedication .cancel': function(event,template){
 		$('.new-dedication').addClass('hidden');

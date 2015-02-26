@@ -1,4 +1,5 @@
 var ERRORS_KEY = 'signinErrors';
+var PASSWORD_FORGOT = 'forgotPassword';
 
 Template.signInForm.created = function() {
   Session.set(ERRORS_KEY, {});
@@ -44,5 +45,9 @@ Template.signInForm.events({
     });
 
     return false;
+  },
+  'click .remember-forgot .forgot': function(){
+    $('#mSignIn').modal('show');
+    Session.set(PASSWORD_FORGOT, true);
   }
 });

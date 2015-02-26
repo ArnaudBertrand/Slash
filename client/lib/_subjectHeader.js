@@ -23,7 +23,11 @@ Template.subjectHeader.events({
 		if(Session.get(SHOW_ADD_NEW_SLASH)){
 			Session.set(SHOW_ADD_NEW_SLASH, false);
 		} else {
-			Session.set(SHOW_ADD_NEW_SLASH, true);
+			if(Meteor.user()){
+				Session.set(SHOW_ADD_NEW_SLASH, true);
+			} else{
+				$('#mSignIn').modal('show');
+			}
 		}
 	}
 });

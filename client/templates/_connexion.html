@@ -79,3 +79,30 @@
 		</div>
 	</div>			
 </template>
+
+<template name="forgotPasswordForm">
+	<div class="forgot-password-form panel panel-default">
+		<div class="panel-body">
+			<h3 class="panel-title">Forgot password ?</h3>
+			<form role="form">
+				{{#if errorMessages}}
+					<div class="list-errors">
+						{{#each errorMessages}}
+							<div class="list-item">{{this}}</div>
+						{{/each}}
+					</div>
+				{{/if}}			
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<div class="form-group">
+							<input type="text" name="email" id="email" class="form-control input-sm" placeholder="E-mail address">
+						</div>
+					</div>
+				</div>
+
+				<input type="submit" value="Send reset password" class="btn btn-info btn-block">
+				<input type="submit" value="Cancel" class="btn btn-info btn-block cancel">
+			</form>
+		</div>
+	</div>	
+</template>
