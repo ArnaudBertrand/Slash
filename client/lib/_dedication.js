@@ -17,23 +17,10 @@ Template.dedication.events({
 	},*/
 	'click .display-add-dedication': function(event,template){
 		if(Meteor.user()){
-			$('.new-dedication').removeClass('hidden');
-			$('.dedication').addClass('hidden');
-			$('.btn-show-add-dedication').addClass('hidden');
-			$('.btn-action-add-dedication').removeClass('hidden');			
+			$('#mAddDedication').modal('show');
 		} else {
 			$('#mSignIn').modal('show');
 		}
-	},
-	'click .btn-action-add-dedication .cancel': function(event,template){
-		$('.new-dedication').addClass('hidden');
-		$('.dedication').removeClass('hidden');
-		$('.btn-show-add-dedication').removeClass('hidden');
-		$('.btn-action-add-dedication').addClass('hidden');
-	},
-	'submit': function(event,template){
-		alert('Message sent not implemented');
-		return false;
 	}
 })
 
