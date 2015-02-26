@@ -7,9 +7,15 @@
 .user-profile-and-slash{
   text-align:center;
   margin-bottom: 25px;
+  margin-top: 20px;
+
   .div-slash-list, .user-profile-info{
     display: inline-block;
     vertical-align: top;
+  }
+
+  .div-slash-list{
+    max-width: 60%;
   }
 
   .user-profile-info{
@@ -17,7 +23,8 @@
     border: 1px solid #777;
     padding: 5px 15px;
     margin-right: 20px;
-
+    margin-bottom: 15px;
+    width: 180px;
     img {
       border-radius: 10px;
     }
@@ -31,5 +38,11 @@
     a{
       cursor: pointer;
     }
+  }
+}
+
+@media screen and (max-width: 1234px) {
+  .user-profile-and-slash .div-slash-list{
+    max-width: 100%;
   }
 }

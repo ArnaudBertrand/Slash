@@ -21,7 +21,6 @@ Template.signUpForm.events({
     var username = template.$('[name=username]').val();
     var password = template.$('[name=password]').val();
     var confirmPassword = template.$('[name=confirmPassword]').val();
-    var email = template.$('[name=email]').val();
 
     var errors = {};
 
@@ -40,8 +39,7 @@ Template.signUpForm.events({
     if (!_.keys(errors).length) {
       Accounts.createUser({
         username: username,
-        password: password,
-        email: email
+        password: password
       }, function(error){
         if (error) {
           return Session.set(ERRORS_KEY, {'none': error.reason});
