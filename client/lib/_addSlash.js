@@ -26,6 +26,7 @@ Template.addSlash.rendered = function (){
 	$('.add-slash-form').slideDown("slow");
 	$('.add-new-slash i').removeClass("fa-plus");
 	$('.add-new-slash i').addClass("fa-minus");
+	$('.datetimepicker').datetimepicker();
 }
 
 Template.addSlash.destroyed = function(){

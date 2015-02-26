@@ -1,34 +1,34 @@
 <template name="addSlash">
 	<form class="add-slash-form col-md-12">
-		<table class="table">
-			<tr class="table-row">
-				<td class="display-add-message user-info">
-					{{#if currentUser }}
-					<p>{{ currentUser.username }}</p>
-					<img alt="My 24th Birthday!" src="https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg" />
-					<p>@messages@</p>
-					<p>@quality@</p>
-					{{else}}
-					<div class="empty-space"></div>
-					{{/if}}
-				</td>
-				<td class="slash-central">
-					<div class="slash-info">
-						<i class="fa fa-clock-o"></i>Your message will be display until @23:05:29@
-					</div>
-					<div class="slash-add-message">
-						<textarea class="form-control" id="slash-message"></textarea>
-					</div>
-				</td>
-				<td class="slash-social">
-					<div class="empty-space"></div>
-				</td>
-			</tr>
-			<tr>
-				<td class="display-add-message"><input type="submit" class="btn btn-success col-md-12 btn-send-slash" value="Submit"></td>
-				<td class="slash-central"></td>
-				<td class="slash-social"></td>
-			</tr>
-		</table>
+		{{#if currentUser }}
+			<table class="table">
+				<tr class="table-row">
+					<td class="display-add-message user-info">
+							<p>{{ currentUser.username }}</p>
+							<img alt="My 24th Birthday!" src="https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg" />
+							<p>@messages@</p>
+							<p>@quality@</p>
+					</td>
+					<td class="slash-central">
+						<div class="input-group datetimepicker start-date">
+							<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+							<input class="set-due-date form-control" type="text" placeholder="Start date"/>
+						</div>
+						<div class="input-group datetimepicker end-date">
+							<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+							<input class="set-due-date form-control" type="text" placeholder="End date"/>
+						</div>
+
+						<div class="slash-add-message">
+							<textarea class="form-control" id="slash-message"></textarea>
+							<input type="submit" class="btn btn-success btn-send-slash" value="Submit" />
+						</div>
+					</td>
+					<td class="slash-social">
+						<div class="empty-space"></div>
+					</td>
+				</tr>
+			</table>
+		{{/if}}
 	</form>
 </template>

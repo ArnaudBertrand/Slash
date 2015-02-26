@@ -13,3 +13,5 @@ iron:router
 fortawesome:fontawesome
 mizzao:bootstrap-3
 froala:editor
+udondan:slick
+tsega:bootstrap3-datetimepicker

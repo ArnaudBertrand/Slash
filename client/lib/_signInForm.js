@@ -49,5 +49,9 @@ Template.signInForm.events({
   'click .remember-forgot .forgot': function(){
     $('#mSignIn').modal('show');
     Session.set(PASSWORD_FORGOT, true);
+  },
+  'click .remember-forgot .create-account': function(){
+    $('#mSignIn').modal('hide');
+    $('#mSignUp').modal('show');
   }
 });
