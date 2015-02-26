@@ -4,5 +4,8 @@ Template.userProfileInfo.events({
 	},
 	'click a.followers': function(){
 		Router.go('followers', {name: this.profileUsername});
+	},
+	'click a.following': function(){
+		Router.go('following', {name: this.profileUsername});
 	}
 });
