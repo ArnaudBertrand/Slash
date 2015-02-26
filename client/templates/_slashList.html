@@ -1,118 +1,32 @@
 <template name="slashList">
-	<table class="slash">
-		<tr>
-			{{#if showUserInfo }}
-				<td class="user-info">
-					<p>@Patati Patata@</p>
-					<a class="picture-link"><img alt="My 24th Birthday!" src="https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg" /></a>
-					<p>@messages@</p>
-					<p>@quality@</p>
-				</td>
-			{{/if}}
-			<td class="slash-central">
-				<div class="slash-info">
-					<i class="fa fa-thumbs-o-up"></i>@12@
-					<i class="fa fa-thumbs-o-down"></i>@1@
-					<i class="fa fa-clock-o"></i>@23:05:29@
-				</div>
-				<div class="slash-message">
-					<p class="desc col-md-12">@bladazdaz dzadzad zdkiazjd zdasd dzd zad@</p>
-				</div>
-			</td>
-			<td class="slash-social">
-				<i class="action vote-up fa fa-thumbs-o-up"></i>
-				<i class="action vote-down fa fa-thumbs-o-down"></i>
-				<i class="action comment fa fa-comment"></i>
-				<i class="action fa fa-exclamation-triangle"></i>
-			</td>
-		</tr>
-	</table>
-
+	{{#each slashList}}
 		<table class="slash">
-		<tr>
-			{{#if showUserInfo }}
-				<td class="user-info">
-					<p>@Patati Patata@</p>
-					<a class="picture-link"><img alt="My 24th Birthday!" src="https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg" /></a>
-					<p>@messages@</p>
-					<p>@quality@</p>
+			<tr>
+				{{#if showUserInfo }}
+					<td class="user-info">
+						<p>@Patati Patata@</p>
+						<a class="picture-link"><img alt="My 24th Birthday!" src="https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg" /></a>
+						<p>@messages@</p>
+						<p>@quality@</p>
+					</td>
+				{{/if}}
+				<td class="slash-central">
+					<div class="slash-info">
+						<i class="fa fa-thumbs-o-up"></i>{{like}}
+						<i class="fa fa-thumbs-o-down"></i>{{dislike}}
+						<i class="fa fa-clock-o"></i>{{timeLeft}}
+					</div>
+					<div class="slash-message">
+						<p class="desc col-md-12">{{message}}</p>
+					</div>
 				</td>
-			{{/if}}
-			<td class="slash-central">
-				<div class="slash-info">
-					<i class="fa fa-thumbs-o-up"></i>@12@
-					<i class="fa fa-thumbs-o-down"></i>@1@
-					<i class="fa fa-clock-o"></i>@23:05:29@
-				</div>
-				<div class="slash-message">
-					<p class="desc col-md-12">@bladazdaz dzadzad zdkiazjd zdasd dzd zad@</p>
-				</div>
-			</td>
-			<td class="slash-social">
-				<i class="action vote-up fa fa-thumbs-o-up"></i>
-				<i class="action vote-down fa fa-thumbs-o-down"></i>
-				<i class="action comment fa fa-comment"></i>
-				<i class="action fa fa-exclamation-triangle"></i>
-			</td>
-		</tr>
-	</table>
-
-	<table class="slash">
-		<tr>
-			{{#if showUserInfo }}
-				<td class="user-info">
-					<p>@Patati Patata@</p>
-					<a class="picture-link"><img alt="My 24th Birthday!" src="https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg" /></a>
-					<p>@messages@</p>
-					<p>@quality@</p>
+				<td class="slash-social">
+					<i class="action vote-up fa fa-thumbs-o-up"></i>
+					<i class="action vote-down fa fa-thumbs-o-down"></i>
+					<i class="action comment fa fa-comment"></i>
+					<i class="action fa fa-exclamation-triangle"></i>
 				</td>
-			{{/if}}
-			<td class="slash-central">
-				<div class="slash-info">
-					<i class="fa fa-thumbs-o-up"></i>@12@
-					<i class="fa fa-thumbs-o-down"></i>@1@
-					<i class="fa fa-clock-o"></i>@23:05:29@
-				</div>
-				<div class="slash-message">
-					<p class="desc col-md-12">@bladazdaz dzadzad zdkiazjd zdasd dzd zad@</p>
-				</div>
-			</td>
-			<td class="slash-social">
-				<i class="action vote-up fa fa-thumbs-o-up"></i>
-				<i class="action vote-down fa fa-thumbs-o-down"></i>
-				<i class="action comment fa fa-comment"></i>
-				<i class="action fa fa-exclamation-triangle"></i>
-			</td>
-		</tr>
-	</table>
-	
-	<table class="slash">
-		<tr>
-			{{#if showUserInfo }}
-				<td class="user-info">
-					<p>@Patati Patata@</p>
-					<a class="picture-link"><img alt="My 24th Birthday!" src="https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg" /></a>
-					<p>@messages@</p>
-					<p>@quality@</p>
-				</td>
-			{{/if}}
-			<td class="slash-central">
-				<div class="slash-info">
-					<i class="fa fa-thumbs-o-up"></i>@12@
-					<i class="fa fa-thumbs-o-down"></i>@1@
-					<i class="fa fa-clock-o"></i>@23:05:29@
-				</div>
-				<div class="slash-message">
-					<p class="desc col-md-12">@bladazdaz dzadzad zdkiazjd zdasd dzd zad@</p>
-				</div>
-			</td>
-			<td class="slash-social">
-				<i class="action vote-up fa fa-thumbs-o-up"></i>
-				<i class="action vote-down fa fa-thumbs-o-down"></i>
-				<i class="action comment fa fa-comment"></i>
-				<i class="action fa fa-exclamation-triangle"></i>
-			</td>
-		</tr>
-	</table>
-
+			</tr>
+		</table>
+	{{/each}}
 </template>
