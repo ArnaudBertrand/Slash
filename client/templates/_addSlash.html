@@ -8,6 +8,8 @@
 					<img alt="My 24th Birthday!" src="https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg" />
 					<p>@messages@</p>
 					<p>@quality@</p>
+					{{else}}
+					<div class="empty-space"></div>
 					{{/if}}
 				</td>
 				<td class="slash-central">
@@ -15,7 +17,7 @@
 						<i class="fa fa-clock-o"></i>Your message will be display until @23:05:29@
 					</div>
 					<div class="slash-add-message">
-						 <div id="editor"></div>
+						<textarea class="form-control" id="slash-message"></textarea>
 					</div>
 				</td>
 				<td class="slash-social">

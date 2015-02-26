@@ -39,10 +39,11 @@ Template.addSlash.events({
 
 		var slashToAdd = {};
 		slashToAdd.author = Meteor.userId();
-		slashToAdd.message = $('.add-slash-form .slash-message').val();
+		slashToAdd.message = $('.add-slash-form #slash-message').val();
+		console.log(slashToAdd.message);
 
 		// Delay
-		var timerHH = $('.add-slash-form .timer.hour').val();
+		/*var timerHH = $('.add-slash-form .timer.hour').val();
 		var timerMM = $('.add-slash-form .timer.min').val();
 		var timerSS = $('.add-slash-form .timer.sec').val();
 		slashToAdd.startDate = new Date(Date.now() + timerHH*3600000 + timerMM*60000 + timerSS*1000);
@@ -50,9 +51,9 @@ Template.addSlash.events({
 		// Timer
 		var timerHH = $('.add-slash-form .timer.hour').val();
 		var timerMM = $('.add-slash-form .timer.min').val();
-		var timerSS = $('.add-slash-form .timer.sec').val();
-		console.log(slashToAdd.startDate);
-		slashToAdd.endDate = new Date(slashToAdd.startDate.getTime() + timerHH*3600000 + timerMM*60000 + timerSS*1000);
+		var timerSS = $('.add-slash-form .timer.sec').val();*/
+		//console.log(slashToAdd.startDate);
+		//slashToAdd.endDate = new Date(slashToAdd.startDate.getTime() + timerHH*3600000 + timerMM*60000 + timerSS*1000);
 
     	if (! slashToAdd.author ) {
       		errors.author = 'User not connected, please login.';

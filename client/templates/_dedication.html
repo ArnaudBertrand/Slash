@@ -1,26 +1,20 @@
 <template name="dedication">
 	<div class="row-dedication">
-	<div class="dedication-user col-md-4">
-		<div class="dedication-user-info col-md-6">
-			<div class="row user-info-item user-name">MiaouMiaou</div>
-			<div class="row user-info-item date-post">Posted at 16:32</div>
-			<div class="row user-info-item user-popularity"><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+		<div class="dedication col-md-11 col-sm-10 col-xs-8">
+			<span class="dedication-text">
+				{{ currentDedication }}
+			</span>
 		</div>
-		
-		<div class="dedication-user-image col-md-6">
-			<div class="bar-vertical"></div>
-			<img class="dedication-user-image-i img-responsive" src="http://insolitebuzz.fr/wp-content/uploads/2014/10/Chat.jpg">
+		<form class="new-dedication col-md-11 col-sm-10 col-xs-8 hidden">
+			<input type="text" placeholder="Send a dedication" class="" />
+		</form>
+		<div class="col-md-1 col-sm-2 col-xs-4 btn-show-add-dedication">
+			<i class="fa fa-plus fa-2x display-add-dedication"></i>
 		</div>
-	</div>
-	<div class="dedication col-md-8">
-		<span class="dedication-text">
-			{{ currentDedication }}
-		</span>
-	</div>
-	<form class="new-dedication display-none">
-		<input type="text" placeholder="Send a dedication" class="form-control" />
-		<input type="submit" value="Send" />
-		<button class="cancel">Cancel</button>
-	</form>
+		<div class="col-md-1 col-sm-2 col-xs-4 btn-action-add-dedication hidden">
+			<input type="submit" class="btn send" value="send">
+			<div class="btn cancel">Cancel</div>
+		</div>
+
 	</div>
 </template>
