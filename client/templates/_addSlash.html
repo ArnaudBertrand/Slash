@@ -1,7 +1,7 @@
 <template name="addSlash">
-	<form class="add-slash-form col-md-12">
+	<form class="add-slash-form col-xs-12">
 		{{#if currentUser }}
-			<table class="table">
+			<table>
 				<tr class="table-row">
 					<td class="display-add-message user-info">
 							<p>{{ currentUser.username }}</p>
@@ -23,9 +23,6 @@
 							<textarea class="form-control" id="slash-message"></textarea>
 							<input type="submit" class="btn btn-success btn-send-slash" value="Submit" />
 						</div>
-					</td>
-					<td class="slash-social">
-						<div class="empty-space"></div>
 					</td>
 				</tr>
 			</table>
