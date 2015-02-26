@@ -1,39 +1,71 @@
-.front-connexion, .front-welcome{
-	display: inline-block;
-	vertical-align: top;
-}
-
-.front-connexion{
-	width: 50%;
-	max-width: 400px;
-}
-
-.front-welcome {
-	padding: 20px;
-	margin-right: 50px;
-	max-width: 600px;
-
-	color: #333;
-	text-align: left;
-	text-shadow: #000 0px 1px 2px;
-	font-size: 20px;
-	font-weight: 300;
-	line-height: 22px;
-
-	background-color: #837fb5;
-	border: 1px solid #888;
-
-	border-radius: 4px;
-
-	h1 {
-		color: #fff;
-	}
-}
-
 .home{
 	padding-top: 50px;
 	text-align: center;
 	margin: 0px auto;
+
+	.front-connexion, .front-welcome{
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	.front-connexion{
+		width: 50%;
+		max-width: 400px;
+	}
+
+	.front-welcome {
+		padding: 20px;
+		margin-right: 50px;
+		max-width: 600px;
+
+		color: #333;
+		text-align: left;
+		font-size: 20px;
+		font-weight: 300;
+		line-height: 22px;
+
+		background-color: #837fb5;
+		border: 1px solid #888;
+
+		border-radius: 4px;
+
+		h1 {
+			color: #fff;
+		}
+
+		h3{
+			color: brown;
+		}
+
+		ul{
+			list-style-type: square;
+		}
+
+		.link-to-pages a{
+			cursor: pointer;
+			color: #ddd;
+			background-color: transparent;
+		}
+			/* unvisited link */
+		a:link {
+		    color: #ddd;
+		}
+
+		/* visited link */
+		a:visited {
+		    color: #ddd;
+		}
+
+		/* mouse over link */
+		a:hover {
+		    color: #fff;
+		}
+
+		/* selected link */
+		a:active {
+		    color: #fff;
+		}
+	}
 }
 
 @media screen and (max-width: 1100px) {
