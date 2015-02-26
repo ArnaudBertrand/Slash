@@ -11,5 +11,8 @@ Template.home.events({
 	},
 	'click .followers': function(){
 		Router.go("followers", {name: "John"});
+	},
+	'click .following': function(){
+		Router.go("following", {name: "John"});
 	}
 });
