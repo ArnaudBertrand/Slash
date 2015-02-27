@@ -32,6 +32,6 @@ Template.profileComplete.events({
 		Router.go("profileView", {name: this.profileUsername});
 	},
 	'click .user-picture button': function(){
-		$("mUploadPicture").show();
+		console.log("no pictures");
 	}
 });

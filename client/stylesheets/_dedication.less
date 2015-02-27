@@ -5,13 +5,14 @@
 	text-align: center;
 	height:80px;
 	background-color:#302430;
-	color:#fff;
 
 	.display-add-dedication{
 		cursor: pointer;
+		color:#fff;
 	}
 
 	.dedication{
+		color:#fff;
 		display: inline-block;
 		height:80px;
 		line-height:80px;
@@ -38,7 +39,6 @@
 	padding-right: 20px;
 	height: 80px;
 	background-color: #E9E0D6;
-	border: 1px solid #888;
 	position: relative;
 	top: -80px;
 	background-color:#302430;
@@ -62,4 +62,27 @@
 		border: 1px solid #ccc;
 
 	}
+}
+
+
+@media screen and (max-width: 550px) {
+	#add-dedication-popup{
+		padding-left: 3px;
+		padding-right: 3px;
+		input {
+			width: 70%;
+		}
+	}
+}
+
+
+@media screen and (max-width: 400px) {
+	#add-dedication-popup {
+		padding-left: 3px;
+		padding-right: 3px;
+		input {
+			width: 60%;
+		}
+	}
+
 }

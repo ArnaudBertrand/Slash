@@ -1,7 +1,6 @@
 <template name="modals">
   {{> mSignIn }}
   {{> mSignUp }}
-  {{> mUploadPicture }}
 </template>
 
 <template name="mSignUp">
@@ -22,19 +21,6 @@
 			{{else}}
 				{{> signInForm }}
 			{{/if}}
-		</div>
-	</div>
-</template>
-
-<template name="mUploadPicture">
-	<div class="modal fade" id="mUploadPicture">
-		<div class="modal-dialog">
-			<div class="forgot-password-form panel panel-default">
-				<div class="panel-body">
-					<h3 class="panel-title">Upload profile picture</h3>
-					{{> upload_bootstrap }}
-				</div>
-			</div>
 		</div>
 	</div>
 </template>
