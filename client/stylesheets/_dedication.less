@@ -10,61 +10,6 @@
 	.display-add-dedication{
 		cursor: pointer;
 	}
-	
-	.dedication-user{
-		position:relative;
-		height:80px;
-		
-		.dedication-user-info{
-			.user-info-item{
-				padding:10px 0px;
-				position:relative;
-				height:25px;
-			}
-		}
-		
-
-		
-		.dedication-user-image{
-			position:relative;
-			width:60px;
-			height:60px;
-			margin:10px;
-			border-radius:50%;
-			border:2px solid #343C47;
-			z-index:4;
-			padding:0px;
-			
-			.bar-vertical{
-				position:absolute;
-				top:-12px;
-				height:80px;
-				left:50%;
-				width:1px;
-				background-color:#343C47;
-				z-index:1;
-			}
-			
-			img{
-				position:relative;
-				z-index:3;
-				border-radius:50%;
-				width:54px;
-				height:54px;
-				vertical-align:middle;
-			}
-			
-			.img-change-1{
-				transform: rotateY(90deg);
-				transition: all 500ms linear;
-			}
-			
-			.img-change-2{
-				transform: rotateY(0deg);
-				transition: all 500ms linear;
-			}
-		}
-	}
 
 	.dedication{
 		display: inline-block;
@@ -85,56 +30,36 @@
 	.btn-show-add-dedication{
 		padding:27px;
 	}
+}
+
+#add-dedication-popup{
+	width: 100%;
+	padding-left: 20px;
+	padding-right: 20px;
+	height: 80px;
+	background-color: #E9E0D6;
+	border: 1px solid #888;
+	position: relative;
+	top: -80px;
+	background-color:#302430;
+	margin-bottom: -80px;
 	
-	.btn-action-add-dedication{
-		padding:0px;
-		margin-right:0px;
-		
-		.send{
-			height:40px;
-			border-radius:0%;
-			margin:0px;
-			border:2px solid #fff;
-			border-bottom:1px solid #fff;
-			background-color:inherit;
-			color:#fff;
-			font-weight:900;
-			width:100%;
-		}
-		
-		.cancel{
-			height:40px;
-			border-radius:0%;
-			margin:0px;
-			border:2px solid #fff;
-			border-top:1px solid #fff;
-			background-color:inherit;
-			font-weight:900;
-			color:#fff;
-			width:100%;
-		}
+	input{
+		position: relative;
+		top: -15px;
+		width: 80%;
+		height: 50px;
+		text-align: center;
+		border: 1px solid #908490;
+		margin-right: 5px;
 	}
 
-	.new-dedication{
-		margin: 0px auto;
-		margin-top: 10px;
-		padding: 5px;
-		text-align:middle;
-		
-		input{
-			font-size:1.5em;
-			width:100%;
-			text-align:center;
-			background-color: inherit;
-			border: 0px solid #888;
-			color:#fff;
-			padding: 0;
-			border: none;
-			box-shadow: none; 
-			background: none;
-			outline: none;
-		}
+	button{
+		position: relative;
+		top: -15px;
+		height: 40px;
+		border-radius: 20px;
+		border: 1px solid #ccc;
+
 	}
-	
-	
 }

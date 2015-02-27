@@ -30,5 +30,8 @@ Template.profileComplete.events({
 	},
 	'click .btn-back': function(){
 		Router.go("profileView", {name: this.profileUsername});
+	},
+	'click .user-picture button': function(){
+		$("mUploadPicture").show();
 	}
 });

@@ -17,12 +17,18 @@ Template.dedication.events({
 	},*/
 	'click .display-add-dedication': function(event,template){
 		if(Meteor.user()){
-			$('#mAddDedication').modal('show');
+			$('#add-dedication-popup').removeClass('hidden');
 		} else {
 			$('#mSignIn').modal('show');
 		}
+	},
+	'click .btn-danger': function(event,template){
+		$('#add-dedication-popup').addClass('hidden');
+	},
+	'click .btn-success': function(event,template){
+		$('#add-dedication-popup').addClass('hidden');
 	}
-})
+});
 
 Template.dedication.rendered = function() {
 	$('.dedication').slick({
@@ -33,4 +39,4 @@ Template.dedication.rendered = function() {
 		easing : true,
 		speed : 700,
 	});
-}
+};
