@@ -62,12 +62,5 @@ Template.addSlash.events({
 
 		console.log(slashToAdd);
 		return false;
-	},
-	'click .slash-add-message': function (event) {
-		console.log('edit');
-		$('#editor').editable({
-		  inlineMode: false,
-		  buttons : ["bold","italic","underline"]
-		})
 	}
 });

@@ -16,6 +16,18 @@ Template.profileComplete.events({
 		template.$('.btn-cancel').addClass('display-none');
 		template.$('.btn-validate').addClass('display-none');
 	},
+	'change #image-to-upload':function(event,template){
+		 _.each(event.currentTarget.files, function(file) {
+			Meteor.saveFile(file, file.name);
+		}); 
+		var file = event.currentTarget.files[0];
+		var reader = new FileReader();
+		// Set preview image into the popover data-content
+		reader.onload = function (e) {         
+			$(".image-preview").attr('src', e.target.result);
+		}        
+		reader.readAsDataURL(file); 
+	},
 	'click .btn-back': function(){
 		Router.go("profileView", {name: this.profileUsername});
 	}
