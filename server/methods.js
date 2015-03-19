@@ -15,5 +15,10 @@ Meteor.methods({
 	},
 	'findSubjectByName': function(name){
 		return Subjects.findOne({name: name});
+	},
+	'addNewSlash': function(slash){
+		slash.like = 0;
+		slash.dislike = 0;
+		Slashs.insert(slash);
 	}
 });

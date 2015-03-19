@@ -26,7 +26,20 @@ Template.addSlash.rendered = function (){
 	$('.add-slash-form').slideDown("slow");
 	$('.add-new-slash i').removeClass("fa-plus");
 	$('.add-new-slash i').addClass("fa-minus");
+
+	// Date
 	$('.datetimepicker').datetimepicker();
+	//$('.datetimepicker.start-date').data("DateTimePicker").minDate(Date.now());
+	// Date bounds
+	//console.log(date());
+	$('.datetimepicker.start-date').on("dp.change",function(e){
+		console.log(e.date);
+		console.log(e.date.toDate());
+		$('.datetimepicker.end-date').data("DateTimePicker").minDate(e.date);
+	});
+	$('.datetimepicker.end-date').on("dp.change",function(e){
+		$('.datetimepicker.start-date').data("DateTimePicker").maxDate(e.date);
+	});
 }
 
 Template.addSlash.destroyed = function(){
@@ -39,28 +52,43 @@ Template.addSlash.events({
 		console.log("ok");
 
 		var slashToAdd = {};
-		slashToAdd.author = Meteor.userId();
-		slashToAdd.message = $('.add-slash-form #slash-message').val();
-		console.log(slashToAdd.message);
+		if(Meteor.userId()){
+			// Author
+			slashToAdd.author = Meteor.userId();
 
-		// Delay
-		/*var timerHH = $('.add-slash-form .timer.hour').val();
-		var timerMM = $('.add-slash-form .timer.min').val();
-		var timerSS = $('.add-slash-form .timer.sec').val();
-		slashToAdd.startDate = new Date(Date.now() + timerHH*3600000 + timerMM*60000 + timerSS*1000);
+			// Message
+			slashToAdd.message = $('.add-slash-form #slash-message').val();
 
-		// Timer
-		var timerHH = $('.add-slash-form .timer.hour').val();
-		var timerMM = $('.add-slash-form .timer.min').val();
-		var timerSS = $('.add-slash-form .timer.sec').val();*/
-		//console.log(slashToAdd.startDate);
-		//slashToAdd.endDate = new Date(slashToAdd.startDate.getTime() + timerHH*3600000 + timerMM*60000 + timerSS*1000);
+			if(slashToAdd.message.length > 10){
+				// Start
+				var sDate = $('.start-date input').val();
+				if(sDate !== ''){
+					slashToAdd.startDate = new Date(sDate);
+				} else {
+					slashToAdd.startDate = new Date(Date.now());
+				}
 
-    	if (! slashToAdd.author ) {
+				// End
+				var eDate = $('.end-date input').val();
+				if(eDate !== ''){
+					slashToAdd.endDate = new Date(sDate);
+				} else {
+					slashToAdd.endDate = new Date(slashToAdd.startDate.getTime() + 24*3600000);			
+				}
+
+				// Name of subject
+				var current = Router.current();
+				slashToAdd.subject = current.params.name;
+
+				Meteor.call('addNewSlash',slashToAdd);				
+			} else {
+	      		errors.message = 'Message too short, at least 10 words.';				
+			}
+
+		} else {
       		errors.author = 'User not connected, please login.';
     	}
 
-		console.log(slashToAdd);
 		return false;
 	}
 });

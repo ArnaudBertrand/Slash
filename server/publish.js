@@ -3,5 +3,5 @@ Meteor.publish("subjectByName", function(subjectName){
 });
 
 Meteor.publish("slashsBySubjectName", function(subjectName){
-	return Slashs.find({subject: subjectName}).fetch();
+	return Slashs.find({subject: subjectName});
 });
