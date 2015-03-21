@@ -20,7 +20,7 @@ Template.appBody.rendered = function (){
         .fadeIn();
     }
   };  
-}
+};
 
 Template.appBody.helpers({
   thisArray: function() {

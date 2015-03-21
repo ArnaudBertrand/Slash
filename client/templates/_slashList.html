@@ -4,10 +4,13 @@
 			<tr>
 				{{#if showUserInfo }}
 					<td class="user-info">
-						<p>{{author.name}}</p>
-						<a class="picture-link"><img alt="My 24th Birthday!" src="https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg" /></a>
-						<p>{{author.nbMessages}} slashs</p>
-						<p>Quality: {{author.quality}}%</p>
+						<p>{{author.username}}</p>
+						{{#if author.img }}
+							<a class="picture-link"><img alt="profile picture" src="/img/{{author.img}}" /></a>
+						{{else}}
+							<a class="picture-link"><img alt="profile picture" src="https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg" /></a>
+						{{/if}}
+						<p>{{author.nbSlash}} slashs</p>
 					</td>
 				{{/if}}
 				<td class="slash-central">
