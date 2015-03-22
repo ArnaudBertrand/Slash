@@ -1,72 +1,76 @@
 <template name="profileComplete">
-	<div class="container profile-complete">
-		<div class="top">
-			<button type="button" class="btn btn-default btn-back">
-				<span class="glyphicon glyphicon-chevron-left"></span>Back
-			</button>
-			<p class="profile-username">Linepo <small class="inscription-date">@joined on 05 May 2014@</small></p>
-		</div>
-		<div class="row">
-			<div class="user-picture col-md-2 col-lg-2 "> 
-				<img alt="User picture" class="image-preview img-responsive" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100">
-				<br />
-				<form class="image-to-upload-button">
-					<i class="fa fa-upload"></i>
-					<span>Upload</span>
-					<input type="file" value="browse" id="image-to-upload" class="form-control">
-				</form>
-			</div>
-			
-			<div class="col-md-10 col-lg-10 ">
-				<table class="table table-user-information">
-					<tbody>
-						<tr class="user-fname">
-							<td>{{firstName.name}}</td>
-							<td class="field displayed">{{firstName.value}}</td>
-							<td class="edit display-none"><input type="text" value="{{firstName.value}}" class="form-control"/></td>
-						</tr>
-						<tr class="user-lname">
-							<td>{{lastName.name}}</td>
-							<td class="field displayed">{{lastName.value}}</td>
-							<td class="edit display-none"><input type="text" value="{{lastName.value}}" class="form-control"/></td>
-						</tr>
-						<tr class="user-gender">
-							<td>{{gender.name}}</td>
-							<td class="field displayed">{{gender.value}}</td>
-							<td class="edit display-none">
-								<input type="radio" name="gender" {{gender.options.male}}/> Male
-								<input type="radio" name="gender" {{gender.options.female}}/> Female
-							</td>
-						</tr>
-						<tr class="user-email">
-							<td>{{email.name}}</td>
-							<td class="field displayed">{{email.value}}</td>
-							<td class="edit display-none"><input type="email" value="{{email.value}}" class="form-control"/></td>
-						</tr>
-						<tr class="user-phone">
-							<td>{{phone.name}}</td>
-							<td class="field displayed">{{phone.value}}</td>
-							<td class="edit display-none"><input type="tel" value="{{phone.value}}" class="form-control"/></td>
-						</tr>
-						<tr class="user-description">
-							<td>{{description.name}}</td>
-							<td class="field displayed">{{description.value}}</td>
-							<td class="edit display-none"><textarea type="tel" class="form-control">{{description.value}}</textarea></td>
-						</tr>
-					</tbody>
-				</table>
-				<div class="form-buttons">
-					<button type="button" class="btn btn-default btn-edit" aria-label="Left Align">
-						Edit
-					</button>
-					<button type="button" class="btn btn-default btn-cancel display-none" aria-label="Left Align">
-						Cancel
-					</button>
-					<button type="button" class="btn btn-default btn-validate display-none" aria-label="Left Align">
-						Validate
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="container profile-complete">
+    <div class="top">
+      <button type="button" class="btn btn-default btn-back">
+        <span class="glyphicon glyphicon-chevron-left"></span>Back
+      </button>
+      <p class="profile-username">{{user.username}} <small class="inscription-date">joined {{user.createdAt}}</small></p>
+    </div>
+    <div class="row">
+      <div class="user-picture col-md-2 col-lg-2 "> 
+        {{#if profilePicture}}
+          <img alt="profile picture" class="image-preview img-responsive" src="{{profilePicture.url store='profileImage'}}">
+        {{else}}
+           <img alt="profile picture" src="/img/noprofile.jpg" />
+        {{/if}}
+        <br />
+        <form class="image-to-upload-button">
+          <i class="fa fa-upload"></i>
+          <span>Upload</span>
+          <input type="file" value="browse" id="image-to-upload" class="form-control">
+        </form>
+      </div>
+      
+      <div class="col-md-10 col-lg-10 ">
+        <table class="table table-user-information">
+          <tbody>
+            <tr class="user-fname">
+              <td>{{firstName.name}}</td>
+              <td class="field displayed"><p contenteditable="true">{{user.firstName}}</p></td>
+              <td class="edit display-none"><input type="text" value="{{firstName.value}}" class="form-control"/></td>
+            </tr>
+            <tr class="user-lname">
+              <td>{{lastName.name}}</td>
+              <td class="field displayed">{{user.lastName}}</td>
+              <td class="edit display-none"><input type="text" value="{{lastName.value}}" class="form-control"/></td>
+            </tr>
+            <tr class="user-gender">
+              <td>{{gender.name}}</td>
+              <td class="field displayed">{{user.gender}}</td>
+              <td class="edit display-none">
+                <input type="radio" name="gender" {{gender.options.male}}/> Male
+                <input type="radio" name="gender" {{gender.options.female}}/> Female
+              </td>
+            </tr>
+            <tr class="user-email">
+              <td>{{email.name}}</td>
+              <td class="field displayed">{{user.email}}</td>
+              <td class="edit display-none"><input type="email" value="{{email.value}}" class="form-control"/></td>
+            </tr>
+            <tr class="user-phone">
+              <td>{{phone.name}}</td>
+              <td class="field displayed">{{user.phoneNb}}</td>
+              <td class="edit display-none"><input type="tel" value="{{phone.value}}" class="form-control"/></td>
+            </tr>
+            <tr class="user-description">
+              <td>{{description.name}}</td>
+              <td class="field displayed">{{user.description}}</td>
+              <td class="edit display-none"><textarea type="tel" class="form-control">{{description.value}}</textarea></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="form-buttons">
+          <button type="button" class="btn btn-default btn-edit" aria-label="Left Align">
+            Edit
+          </button>
+          <button type="button" class="btn btn-default btn-cancel display-none" aria-label="Left Align">
+            Cancel
+          </button>
+          <button type="button" class="btn btn-default btn-validate display-none" aria-label="Left Align">
+            Validate
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>

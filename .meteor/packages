@@ -16,3 +16,7 @@ froala:editor
 udondan:slick
 tsega:bootstrap3-datetimepicker
 tomi:upload-jquery
+cfs:standard-packages
+cfs:gridfs
+cfs:filesystem
+cfs:ejson-file

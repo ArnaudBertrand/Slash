@@ -21,11 +21,23 @@ Meteor.methods({
     slash.dislike = 0;
     Slashs.insert(slash);
     Meteor.users.update({_id: Meteor.userId()}, {$inc: {nbSlash: 1}})
+  },
+  'changeProfilePicture': function(url){
+    Meteor.users.update({_id: Meteor.userId()}, {$set: {img: url}});
+  },
+  'getImage': function(imgId){
+    return profileImage.findOne({_id: imgId});
+  },
+  'likeSlash': function(slashId){
+    Slashs.update({_id: slashId}, {$inc: {like: 1}})
+  },
+  'dislikeSlash': function(slashId){
+    Slashs.update({_id: slashId}, {$inc: {dislike: 1}})
   }
 });
 
 Accounts.onCreateUser(function(options, user) {
-  user.img = 'noprofile.jpg';
+  user.img = '';
   user.nbSlash = 0;
   user.nbLike = 0;
   user.nbDislike = 0;

@@ -14,14 +14,18 @@ Template.slashList.helpers({
     if(ROUTE_PROFILE_VIEW !== routeName){
       slashList.forEach(function(slash){
         slash.author = Meteor.users.findOne({_id: slash.authorId});
-    });
+        slash.picture = profileImage.findOne({_id: slash.author.img});
+      });
     }
     return slashList;
   }
 });
 
 Template.slashList.events({
-  "click .picture-link": function(event){
-    Router.go("profileView",{ name: "Arnaud"});
+  'click .fa-thumbs-o-up': function(){
+    Meteor.call('likeSlash',this._id);
+  },
+  'click .fa-thumbs-o-down': function(){
+    Meteor.call('dislikeSlash',this._id);
   }
 });

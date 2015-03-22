@@ -1,28 +1,36 @@
 <template name="profileView">
-	<div class="container profile-view">
-		<div class="row row-dedication">
-			{{> dedication }}
-		</div>
-		<div class="row user-profile-and-slash">
-			<aside class="user-profile-info">
-				{{> userProfileInfo }}
-			</aside>
-			<div class="div-slash-list">
-				{{> slashList }}
-			</div>
-		</div>
-	</div>
+  <div class="container profile-view">
+    <div class="row row-dedication">
+      {{> dedication }}
+    </div>
+    <div class="row user-profile-and-slash">
+      <aside class="user-profile-info">
+        {{> userProfileInfo }}
+      </aside>
+      <div class="div-slash-list">
+        {{#if emptySlashList}}
+          <p class="no-slashs">No active slashs</p>
+        {{else}}
+          {{> slashList }}
+        {{/if}}
+      </div>
+    </div>
+  </div>
 </template>
 
 <template name="userProfileInfo">
-	<p>{{user.username}}</p>
-	<img alt="profile picture" src="/img/{{user.img}}" />
-	<p>{{user.nbSlash}} slash</p>
-	<p>Quality: @nb@%</p>
-	<a class="profile">Profile</a><br />
-	<a class="following">Following</a><br />
-	<a class="followers">Followers</a><br /><br />
-	{{#if isNotUserProfile}}
-		<button class="follow btn btn-default">Follow</button>
-	{{/if}}
+  <p>{{user.username}}</p>
+  {{#if profilePicture}}
+    <img alt="profile picture" src="{{profilePicture.url store='profileImage'}}" />
+  {{else}}
+    <img alt="profile picture" src="/img/noprofile.jpg" />
+  {{/if}}
+  <p>{{user.nbSlash}} slash</p>
+  <p>Quality: @nb@%</p>
+  <a class="profile">Profile</a><br />
+  <a class="following">Following</a><br />
+  <a class="followers">Followers</a><br /><br />
+  {{#if isNotUserProfile}}
+    <button class="follow btn btn-default">Follow</button>
+  {{/if}}
 </template>
