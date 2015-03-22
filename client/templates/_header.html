@@ -1,23 +1,23 @@
 <template name="header">
-	<div class="logo">
-		<a href="{{pathFor 'home'}}">
-			<i class="fa fa-weixin fa-4x"></i>
-		</a>
-	</div>
-	<form class="searchSlash">
-		<input type="text" class="form-control" name="searchSlash" placeholder="//Search subject">
-	</form>
-	<div class="headerRight">
-		{{#if currentUser }}
-			<h2 class="hello-username">Hello {{ currentUser.username }}</h2>
-			{{#each puce}}
-				<div class="puce {{ class }}"  title='{{ title }}'>
-					<i class="{{ icon }}"></i>
-				</div>
-			{{/each}}
-		{{else}}
-			<button class="signin">Sign In</button>
-			<button class="signup">Create an account</button>
-		{{/if}}
-	</div>
+  <div class="logo">
+    <a href="{{pathFor 'home'}}">
+      <i class="fa fa-weixin fa-4x"></i>
+    </a>
+  </div>
+  <form class="searchSlash">
+    <input type="text" class="form-control" name="searchSlash" placeholder="//Search subject">
+  </form>
+  <div class="headerRight">
+    {{#if currentUser }}
+      <h2 class="hello-username">Hello {{ currentUser.username }}</h2>
+      {{#each puce}}
+        <div class="puce {{ class }}"  title='{{ title }}'>
+          <i class="{{ icon }}"></i>
+        </div>
+      {{/each}}
+    {{else}}
+      <button class="signin">Sign In</button>
+      <button class="signup">Create an account</button>
+    {{/if}}
+  </div>
 </template>

@@ -21,8 +21,6 @@ function DedicationBatch (){
       // If size too small then add random messages
       if(dediSize < 2){
         var i = Math.floor(Math.random()*(this.randomMessages.length));
-        console.log(i);
-        console.log(this.randomMessages[i]);
         Dedications.insert({text: this.randomMessages[i], date: Date.now()});
       }
       // Delete the first dedication

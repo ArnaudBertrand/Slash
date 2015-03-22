@@ -4,23 +4,23 @@
 </template>
 
 <template name="mSignUp">
-	<div class="modal fade" id="mSignUp">
-		<div class="modal-dialog">
-			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-			{{> signUpForm }}
-		</div>
-	</div>
+  <div class="modal fade" id="mSignUp">
+    <div class="modal-dialog">
+      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      {{> signUpForm }}
+    </div>
+  </div>
 </template>
 
 <template name="mSignIn">
-	<div class="modal fade" id="mSignIn">
-		<div class="modal-dialog">
-			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-			{{#if forgotPassword}}
-				{{> forgotPasswordForm}}
-			{{else}}
-				{{> signInForm }}
-			{{/if}}
-		</div>
-	</div>
+  <div class="modal fade" id="mSignIn">
+    <div class="modal-dialog">
+      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      {{#if forgotPassword}}
+        {{> forgotPasswordForm}}
+      {{else}}
+        {{> signInForm }}
+      {{/if}}
+    </div>
+  </div>
 </template>

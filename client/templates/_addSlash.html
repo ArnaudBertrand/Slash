@@ -1,31 +1,31 @@
 <template name="addSlash">
-	<form class="add-slash-form col-xs-12">
-		{{#if currentUser }}
-			<table>
-				<tr class="table-row">
-					<td class="display-add-message user-info">
-							<p>{{ currentUser.username }}</p>
-							<img alt="My 24th Birthday!" src="https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg" />
-							<p>@messages@</p>
-							<p>@quality@</p>
-					</td>
-					<td class="slash-central">
-						<div class="input-group datetimepicker start-date">
-							<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-							<input class="set-due-date form-control" type="text" placeholder="Start date"/>
-						</div>
-						<div class="input-group datetimepicker end-date">
-							<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-							<input class="set-due-date form-control" type="text" placeholder="End date"/>
-						</div>
+  <form class="add-slash-form col-xs-12">
+    {{#if currentUser }}
+      <table>
+        <tr class="table-row">
+          <td class="display-add-message user-info">
+              <p>{{ currentUser.username }}</p>
+              <img alt="My 24th Birthday!" src="https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg" />
+              <p>@messages@</p>
+              <p>@quality@</p>
+          </td>
+          <td class="slash-central">
+            <div class="input-group datetimepicker start-date">
+              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <input class="set-due-date form-control" type="text" placeholder="Start date"/>
+            </div>
+            <div class="input-group datetimepicker end-date">
+              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <input class="set-due-date form-control" type="text" placeholder="End date"/>
+            </div>
 
-						<div class="slash-add-message">
-							<textarea class="form-control" id="slash-message"></textarea>
-							<input type="submit" class="btn btn-success btn-send-slash" value="Submit" />
-						</div>
-					</td>
-				</tr>
-			</table>
-		{{/if}}
-	</form>
+            <div class="slash-add-message">
+              <textarea class="form-control" id="slash-message"></textarea>
+              <input type="submit" class="btn btn-success btn-send-slash" value="Submit" />
+            </div>
+          </td>
+        </tr>
+      </table>
+    {{/if}}
+  </form>
 </template>
