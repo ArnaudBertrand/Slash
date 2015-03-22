@@ -31,12 +31,13 @@
     text-align: center;
     background-color: #2d2a49;
 
-    i {
+    i{
       padding: 5px;
       display: block;
       height: 100%;
       font-size:1.5em;
       color: #eeeeee;
+      cursor: pointer; 
     }
     
     .action{
@@ -47,9 +48,12 @@
 
     }
 
-    i:hover{
+    i.vote-up:hover, i.vote-up.activated, i.comment:hover{
       color: #3f3;
-      cursor: pointer; 
+    }
+
+    i.vote-down:hover, i.vote-down.activated, i.alert:hover, i.alert.activated{
+      color: red;
     }
   }
 

@@ -22,10 +22,12 @@ Template.slashList.helpers({
 });
 
 Template.slashList.events({
-  'click .fa-thumbs-o-up': function(){
+  'click .fa-thumbs-o-up:not(.activated)': function(event){
+    event.target.className = event.target.className + " activated";
     Meteor.call('likeSlash',this._id);
   },
-  'click .fa-thumbs-o-down': function(){
+  'click .fa-thumbs-o-down:not(.activated)': function(){
+    event.target.className = event.target.className + " activated";
     Meteor.call('dislikeSlash',this._id);
   }
 });
