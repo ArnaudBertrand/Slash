@@ -22,6 +22,9 @@ Meteor.methods({
     Slashs.insert(slash);
     Meteor.users.update({_id: Meteor.userId()}, {$inc: {nbSlash: 1}})
   },
+  'addDedication': function(dedication){
+    Dedications.insert(dedication);
+  },
   'changeProfilePicture': function(url){
     Meteor.users.update({_id: Meteor.userId()}, {$set: {img: url}});
   },

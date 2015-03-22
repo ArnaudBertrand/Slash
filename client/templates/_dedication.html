@@ -1,27 +1,18 @@
 <template name="dedication">
-	<div class="row-dedication">
-		<div class="dedication col-md-11 col-sm-10 col-xs-8">
-			<div>
-				<span class="dedication-text">
-					{{ currentDedication }}
-				</span>
-			</div>
-			<div>
-				<span class="dedication-text-next">
-					next dedication - Whaaouuuu
-				</span>
-			</div>
-		</div>
+  <div class="row-dedication">
+    <div class="dedication col-md-11 col-sm-10 col-xs-8">
+      <div class="dedication-text">
+      </div>
+    </div>
 
-		<div class="col-md-1 col-sm-2 col-xs-4 btn-show-add-dedication">
-			<i class="fa fa-plus fa-2x display-add-dedication"></i>
-		</div>
-	</div>
-	
-	<div id="add-dedication-popup" class="hidden">
-		<input type="text" placeholder="Type your text" />
-		<button class="btn btn-success"><span class="glyphicon glyphicon-ok"></span></button>
-		<button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
-	</div>
-
+    <div class="col-md-1 col-sm-2 col-xs-4 btn-show-add-dedication">
+      <i class="fa fa-plus fa-2x display-add-dedication"></i>
+    </div>
+  </div>
+  
+  <div id="add-dedication-popup" class="hidden">
+    <input class="dedication-text" type="text" placeholder="Type your text" />
+    <button class="btn btn-success"><span class="glyphicon glyphicon-ok"></span></button>
+    <button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+  </div>
 </template>

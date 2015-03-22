@@ -1,14 +1,10 @@
+/** Subjects **/
 Meteor.publish("subjectByName", function(subjectName){
   return Subjects.find({name: subjectName});
 });
 
 Meteor.publish("slashsBySubjectName", function(subjectName){
   return Slashs.find({subject: subjectName});
-});
-
-Meteor.publish("slashsByUsername", function(username){
-  var user = Meteor.users.findOne({username: username}, {fields: {_id: 1}});
-  return Slashs.find({authorId: user._id});
 });
 
 Meteor.publish("slashUsers", function (subjectName) {
@@ -28,8 +24,13 @@ Meteor.publish("slashUsers", function (subjectName) {
   return [userCursor,profileImage.find({_id: {$in: picturesId}})];
 });
 
+/** Profile **/
+Meteor.publish("slashsByUsername", function(username){
+  var user = Meteor.users.findOne({username: username}, {fields: {_id: 1}});
+  return Slashs.find({authorId: user._id});
+});
+
 Meteor.publish("userProfile", function(username){
-  console.log(username);
   return Meteor.users.find({username: username});
 });
 
@@ -38,7 +39,7 @@ Meteor.publish("profileImage", function(username){
   return profileImage.find({_id: user.img});
 });
 
-Meteor.publish("slashProfilePictures", function(username){
-  var user = Meteor.users.findOne({username: username});
-  return profileImage.find({_id: user.img});
+/** Dedications **/
+Meteor.publish("dedications", function(){
+  return Dedications.find();
 });
