@@ -69,7 +69,7 @@ Template.addSlash.events({
         // End
         var eDate = $('.end-date input').val();
         if(eDate !== ''){
-          slashToAdd.endDate = new Date(sDate);
+          slashToAdd.endDate = new Date(eDate);
         } else {
           slashToAdd.endDate = new Date(slashToAdd.startDate.getTime() + 24*3600000);     
         }

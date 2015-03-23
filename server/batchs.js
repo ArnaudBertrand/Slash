@@ -1,5 +1,6 @@
 Fiber = Npm.require('fibers');
 
+/** Batch for dedication publications **/
 function DedicationBatch (){
   if ( arguments.callee._singletonInstance )
     return arguments.callee._singletonInstance;
@@ -33,3 +34,20 @@ function DedicationBatch (){
 };
 
 new DedicationBatch().run();
+
+/** Batch for slashes remove **/
+function SlashRemoveBatch (){
+  if ( arguments.callee._singletonInstance )
+    return arguments.callee._singletonInstance;
+  arguments.callee._singletonInstance = this;  
+  
+  function running(){
+    var now = new Date();
+    Slashs.remove({endDate: {$lt: now}});
+    console.log(now + " - test");
+    Meteor.setTimeout(running,1000*(61-now.getSeconds()));    
+  }
+  this.run = running;
+};
+
+new SlashRemoveBatch().run();
