@@ -14,6 +14,11 @@
     }
   }
 
+  .user-information-container{
+    display: inline-block;
+    width: 70%;
+  }
+
   .user-information .field {
       width: 80%;
       border-top: 1px solid rgb(221, 221, 221);
@@ -34,18 +39,18 @@
       }
   }
 
-  .text-info {
-    margin-top: -50px;
-    margin-left: 120px;
-  }
-
   .profile-username{
     margin-left: 50px;
   }
 
   .user-picture{
+    display: inline-block;
     text-align: center;
+    width: 20%;
+    vertical-align: top;
+    margin-right: 20px;
     img{
+      max-width: 100%;
       margin: 10px auto;
     }
   }
@@ -93,5 +98,29 @@
     .inscription-date{
       display: none;
     }    
+    .user-information .field {
+      width: 100%;
+      .field-name{
+        width: 30%;
+      }
+      .field-value, .field-edit{
+        width: 60%; 
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .profile-complete{
+    .user-picture{
+      display: block;
+      margin: 0px auto;
+      width: 50%;
+    }
+    .user-information-container{
+      display: block;
+      width: 80%;
+      margin: 0px auto;
+    }
   }
 }

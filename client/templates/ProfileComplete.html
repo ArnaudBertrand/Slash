@@ -6,71 +6,69 @@
       </button>
       <p class="profile-username">{{user.username}} <small class="inscription-date">joined {{user.createdAt}}</small></p>
     </div>
-    <div class="row">
-      <div class="user-picture col-md-2 col-lg-2 "> 
-        {{#if profilePicture}}
-          <img alt="profile picture" class="image-preview img-responsive" src="{{profilePicture.url store='profileImage'}}">
-        {{else}}
-           <img alt="profile picture" class="image-preview img-responsive" src="/img/noprofile.jpg" />
-        {{/if}}
-        <br />
-        <form class="image-to-upload-button">
-          {{#if isUserProfile}}
-            <i class="fa fa-upload"></i>
-            <span>Upload</span>
-          {{/if}}
-          <input type="file" value="browse" id="image-to-upload" class="form-control">
-        </form>
-      </div>
-      
-      <div class="col-md-10 col-lg-10 ">
-        <h4>User information</h4>
-        <div class="user-information">
-          <div class="field user-fname">
-            <div class="field-name">First name</div>
-            <div class="field-value">{{user.profile.firstName}}&nbsp;</div>
-            <div class="field-edit display-none"><input type="text" value="{{user.profile.firstName}}" class="form-control"/></div>
-          </div>
-          <div class="field user-lname">
-            <div class="field-name">Last name</div>
-            <div class="field-value">{{user.profile.lastName}}&nbsp;</div>
-            <div class="field-edit display-none"><input type="text" value="{{user.profile.lastName}}" class="form-control"/></div>
-          </div>
-          <div class="field user-gender">
-            <div class="field-name">Gender</div>
-            <div class="field-value">{{user.profile.gender}}&nbsp;</div>
-            <div class="field-edit display-none">
-              <input type="radio" name="gender" value="" {{genderChecked 'None'}}/> None
-              <input type="radio" name="gender" value="Male" {{genderChecked 'Male'}}/> Male
-              <input type="radio" name="gender" value="Female" {{genderChecked 'Female'}}/> Female
-            </div>
-            {{genderOption}}
-          </div>
-          <div class="field user-phone">
-            <div class="field-name">Phone</div>
-            <div class="field-value">{{user.profile.phone}}&nbsp;</div>
-            <div class="field-edit display-none"><input type="tel" value="{{user.profile.phone}}" class="form-control"/></div>
-          </div>
-          <div class="field user-description">
-            <div class="field-name">Description</div>
-            <div class="field-value">{{user.profile.description}}&nbsp;</div>
-            <div class="field-edit display-none"><textarea type="tel" class="form-control">{{user.profile.description}}</textarea></div>
-          </div>
-        </div>
+    <div class="user-picture"> 
+      {{#if profilePicture}}
+        <img alt="profile picture" class="image-preview" src="{{profilePicture.url store='profileImage'}}">
+      {{else}}
+         <img alt="profile picture" class="image-preview" src="/img/noprofile.jpg" />
+      {{/if}}
+      <br />
+      <form class="image-to-upload-button">
         {{#if isUserProfile}}
-          <div class="form-buttons">
-            <button type="button" class="btn btn-default btn-edit" aria-label="Left Align">
-              Edit
-            </button>
-            <button type="button" class="btn btn-default btn-cancel display-none" aria-label="Left Align">
-              Cancel
-            </button>
-            <button type="button" class="btn btn-default btn-validate display-none" aria-label="Left Align">
-              Validate
-            </button>
-          </div>
+          <i class="fa fa-upload"></i>
+          <span>Upload</span>
         {{/if}}
+        <input type="file" value="browse" id="image-to-upload" class="form-control">
+      </form>
+    </div>
+    
+    <div class="user-information-container">
+      <h4>User information</h4>
+      <div class="user-information">
+        <div class="field user-fname">
+          <div class="field-name">First name</div>
+          <div class="field-value">{{user.profile.firstName}}&nbsp;</div>
+          <div class="field-edit display-none"><input type="text" value="{{user.profile.firstName}}" class="form-control"/></div>
+        </div>
+        <div class="field user-lname">
+          <div class="field-name">Last name</div>
+          <div class="field-value">{{user.profile.lastName}}&nbsp;</div>
+          <div class="field-edit display-none"><input type="text" value="{{user.profile.lastName}}" class="form-control"/></div>
+        </div>
+        <div class="field user-gender">
+          <div class="field-name">Gender</div>
+          <div class="field-value">{{user.profile.gender}}&nbsp;</div>
+          <div class="field-edit display-none">
+            <input type="radio" name="gender" value="" {{genderChecked 'None'}}/> None
+            <input type="radio" name="gender" value="Male" {{genderChecked 'Male'}}/> Male
+            <input type="radio" name="gender" value="Female" {{genderChecked 'Female'}}/> Female
+          </div>
+          {{genderOption}}
+        </div>
+        <div class="field user-phone">
+          <div class="field-name">Phone</div>
+          <div class="field-value">{{user.profile.phone}}&nbsp;</div>
+          <div class="field-edit display-none"><input type="tel" value="{{user.profile.phone}}" class="form-control"/></div>
+        </div>
+        <div class="field user-description">
+          <div class="field-name">Description</div>
+          <div class="field-value">{{user.profile.description}}&nbsp;</div>
+          <div class="field-edit display-none"><textarea type="tel" class="form-control">{{user.profile.description}}</textarea></div>
+        </div>
       </div>
+      {{#if isUserProfile}}
+        <div class="form-buttons">
+          <button type="button" class="btn btn-default btn-edit" aria-label="Left Align">
+            Edit
+          </button>
+          <button type="button" class="btn btn-default btn-cancel display-none" aria-label="Left Align">
+            Cancel
+          </button>
+          <button type="button" class="btn btn-default btn-validate display-none" aria-label="Left Align">
+            Validate
+          </button>
+        </div>
+      {{/if}}
     </div>
   </div>
 </template>
