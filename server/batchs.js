@@ -44,7 +44,6 @@ function SlashRemoveBatch (){
   function running(){
     var now = new Date();
     Slashs.remove({endDate: {$lt: now}});
-    console.log(now + " - test");
     Meteor.setTimeout(running,1000*(61-now.getSeconds()));    
   }
   this.run = running;

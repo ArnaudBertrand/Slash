@@ -15,61 +15,61 @@
         {{/if}}
         <br />
         <form class="image-to-upload-button">
-          <i class="fa fa-upload"></i>
-          <span>Upload</span>
+          {{#if isUserProfile}}
+            <i class="fa fa-upload"></i>
+            <span>Upload</span>
+          {{/if}}
           <input type="file" value="browse" id="image-to-upload" class="form-control">
         </form>
       </div>
       
       <div class="col-md-10 col-lg-10 ">
-        <table class="table table-user-information">
-          <tbody>
-            <tr class="user-fname">
-              <td>{{firstName.name}}</td>
-              <td class="field displayed"><p contenteditable="true">{{user.firstName}}</p></td>
-              <td class="edit display-none"><input type="text" value="{{firstName.value}}" class="form-control"/></td>
-            </tr>
-            <tr class="user-lname">
-              <td>{{lastName.name}}</td>
-              <td class="field displayed">{{user.lastName}}</td>
-              <td class="edit display-none"><input type="text" value="{{lastName.value}}" class="form-control"/></td>
-            </tr>
-            <tr class="user-gender">
-              <td>{{gender.name}}</td>
-              <td class="field displayed">{{user.gender}}</td>
-              <td class="edit display-none">
-                <input type="radio" name="gender" {{gender.options.male}}/> Male
-                <input type="radio" name="gender" {{gender.options.female}}/> Female
-              </td>
-            </tr>
-            <tr class="user-email">
-              <td>{{email.name}}</td>
-              <td class="field displayed">{{user.email}}</td>
-              <td class="edit display-none"><input type="email" value="{{email.value}}" class="form-control"/></td>
-            </tr>
-            <tr class="user-phone">
-              <td>{{phone.name}}</td>
-              <td class="field displayed">{{user.phoneNb}}</td>
-              <td class="edit display-none"><input type="tel" value="{{phone.value}}" class="form-control"/></td>
-            </tr>
-            <tr class="user-description">
-              <td>{{description.name}}</td>
-              <td class="field displayed">{{user.description}}</td>
-              <td class="edit display-none"><textarea type="tel" class="form-control">{{description.value}}</textarea></td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="form-buttons">
-          <button type="button" class="btn btn-default btn-edit" aria-label="Left Align">
-            Edit
-          </button>
-          <button type="button" class="btn btn-default btn-cancel display-none" aria-label="Left Align">
-            Cancel
-          </button>
-          <button type="button" class="btn btn-default btn-validate display-none" aria-label="Left Align">
-            Validate
-          </button>
+        <h4>User information</h4>
+        <div class="user-information">
+          <div class="field user-fname">
+            <div class="field-name">First name</div>
+            <div class="field-value">{{user.profile.firstName}}&nbsp;</div>
+            <div class="field-edit display-none"><input type="text" value="{{user.profile.firstName}}" class="form-control"/></div>
+          </div>
+          <div class="field user-lname">
+            <div class="field-name">Last name</div>
+            <div class="field-value">{{user.profile.lastName}}&nbsp;</div>
+            <div class="field-edit display-none"><input type="text" value="{{user.profile.lastName}}" class="form-control"/></div>
+          </div>
+          <div class="field user-gender">
+            <div class="field-name">Gender</div>
+            <div class="field-value">{{user.profile.gender}}&nbsp;</div>
+            <div class="field-edit display-none">
+              <input type="radio" name="gender" value="" {{genderChecked 'None'}}/> None
+              <input type="radio" name="gender" value="Male" {{genderChecked 'Male'}}/> Male
+              <input type="radio" name="gender" value="Female" {{genderChecked 'Female'}}/> Female
+            </div>
+            {{genderOption}}
+          </div>
+          <div class="field user-phone">
+            <div class="field-name">Phone</div>
+            <div class="field-value">{{user.profile.phone}}&nbsp;</div>
+            <div class="field-edit display-none"><input type="tel" value="{{user.profile.phone}}" class="form-control"/></div>
+          </div>
+          <div class="field user-description">
+            <div class="field-name">Description</div>
+            <div class="field-value">{{user.profile.description}}&nbsp;</div>
+            <div class="field-edit display-none"><textarea type="tel" class="form-control">{{user.profile.description}}</textarea></div>
+          </div>
         </div>
+        {{#if isUserProfile}}
+          <div class="form-buttons">
+            <button type="button" class="btn btn-default btn-edit" aria-label="Left Align">
+              Edit
+            </button>
+            <button type="button" class="btn btn-default btn-cancel display-none" aria-label="Left Align">
+              Cancel
+            </button>
+            <button type="button" class="btn btn-default btn-validate display-none" aria-label="Left Align">
+              Validate
+            </button>
+          </div>
+        {{/if}}
       </div>
     </div>
   </div>
