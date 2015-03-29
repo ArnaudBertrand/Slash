@@ -18,9 +18,11 @@
               <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
               <input class="set-due-date form-control" type="text" placeholder="End date"/>
             </div>
-
             <div class="slash-add-message">
               <textarea class="form-control" id="slash-message"></textarea>
+              {{#if errorMessage}}
+                <p>{{errorMessage}}</p>
+              {{/if}}
               <input type="submit" class="btn btn-success btn-send-slash" value="Submit" />
             </div>
           </td>
