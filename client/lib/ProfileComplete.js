@@ -1,44 +1,54 @@
+Template.profileComplete.rendered = function(){
+  $('.profile-complete .user-information .field-edit').hide();
+};
+
 Template.profileComplete.helpers({
-  'firstName': function(){
-    return { name: "First Name", value: "Pauline" };
-  },
-  'lastName': function(){
-    return { name: "Last Name", value: "Michaud" };
-  },
-  'gender': function(){
-    return { name: "Gender", value: "Female", options: {female: "checked"} };
-  },
-  'email': function(){
-    return { name: "E-mail", type:"email", value: "paulinemichaud1@sfr.fr" };
-  },
-  'phone': function(){
-    return { name: "Phone number", value: "123-4567-890" };
-  },
-  'description': function(){
-    return { name: "Description", value: "I'm kind, nice and I like pizza, cats and movies :) :) :)" };
-  },
-  'profilePicture': function(){
-    return profileImage.findOne();
+  'genderChecked': function(val){
+    var selectedUser = Meteor.user();
+    if(selectedUser && selectedUser.profile.gender === val){
+      return {checked: 'checked'};
+    }
+    return {};
   }
 });
 
 Template.profileComplete.events({
   'click .btn-edit':function(event,template){
     // Hide text and show inputs
-    template.$('.table-user-information .edit').removeClass('display-none');
-    template.$('.table-user-information .field').addClass('display-none');
+    template.$('.user-information .field-edit').show();
+    template.$('.user-information .field-value').hide();
     // Hide edit, show validate and cancel
-    template.$('.btn-edit').addClass('display-none');
-    template.$('.btn-cancel').removeClass('display-none');
-    template.$('.btn-validate').removeClass('display-none');
+    template.$('.btn-edit').hide();
+    template.$('.btn-cancel').show();
+    template.$('.btn-validate').show();
   },
   'click .btn-cancel':function(event,template){
-    template.$('.table-user-information .field').removeClass('display-none');
-    template.$('.table-user-information .edit').addClass('display-none');
+    // Show text and hide inputs
+    template.$('.user-information .field-value').show();
+    template.$('.user-information .field-edit').hide();
     // Hide validate and cancel, show edit
-    template.$('.btn-edit').removeClass('display-none');
-    template.$('.btn-cancel').addClass('display-none');
-    template.$('.btn-validate').addClass('display-none');
+    template.$('.btn-edit').show();
+    template.$('.btn-cancel').hide();
+    template.$('.btn-validate').hide();
+  },
+  'click .btn-validate': function(event,template){
+    // Update profile
+    var profile = {};
+    profile["profile.firstName"] = template.$('.user-fname input').val();
+    profile["profile.lastName"] = template.$('.user-lname input').val();
+    profile["profile.gender"] = template.$('.user-gender input:checked').val();
+    profile["profile.email"] = template.$('.user-email input').val();
+    profile["profile.phone"] = template.$('.user-phone input').val();
+    profile["profile.description"] = template.$('.user-description textarea').val();
+    Meteor.users.update({_id:Meteor.userId()}, {$set:profile});
+
+    // Show text and hide inputs
+    template.$('.user-information .field-value').show();
+    template.$('.user-information .field-edit').hide();
+    // Hide validate and cancel, show edit
+    template.$('.btn-edit').show();
+    template.$('.btn-cancel').hide();
+    template.$('.btn-validate').hide();
   },
   'change #image-to-upload':function(event,template){
     FS.Utility.eachFile(event, function(file) {

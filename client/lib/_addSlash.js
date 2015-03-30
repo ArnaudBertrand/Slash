@@ -2,22 +2,15 @@
 *** TODO: Deal with errors in adding
 **/
 
-var ERRORS_KEY = 'addNewSlashErrors';
+var ERROR_KEY = 'addNewSlashErrors';
 
 Template.addSlash.created = function() {
-  Session.set(ERRORS_KEY, {});
-  $('#editor').editable({
-    inlineMode: false,
-    buttons : ["bold","italic","underline"]
-  });
+  Session.set(ERROR_KEY, '');
 };
 
 Template.addSlash.helpers({
-  errorMessages: function() {
-    return _.values(Session.get(ERRORS_KEY));
-  },
-  errorClass: function(key) {
-    return Session.get(ERRORS_KEY)[key] && 'error';
+  errorMessage: function() {
+    return Session.get(ERROR_KEY);
   }
 });
 
@@ -50,6 +43,7 @@ Template.addSlash.destroyed = function(){
 Template.addSlash.events({
   'submit .add-slash-form': function(event){
     var slashToAdd = {};
+
     if(Meteor.userId()){
       // Author
       slashToAdd.authorId = Meteor.userId();
@@ -80,12 +74,12 @@ Template.addSlash.events({
 
         Meteor.call('addNewSlash',slashToAdd);        
       } else {
-            errors.message = 'Message too short, at least 10 words.';       
+        Session.set(ERROR_KEY, 'Message too short, at least 10 words.');
         return false;
       }
 
     } else {
-      errors.author = 'User not connected, please login.';
+      Session.set(ERROR_KEY, 'User not connected, please login.');
       return false;
     }
   }
