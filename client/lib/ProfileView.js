@@ -6,7 +6,18 @@ Template.profileView.helpers({
 Template.userProfileInfo.helpers({
   'profilePicture': function(){
     return profileImage.findOne();
-  }
+  },
+  'bFollowing': function(){
+	Meteor.call('bFollowing',{followed : this.user._id, follower : $('.currentUser-id').text()},function (err,res) {
+		if(res) {
+			$('.stop-follow').removeClass('hidden');
+			$('.follow').addClass('hidden');
+		} else {
+			$('.follow').removeClass('hidden');
+			$('.stop-follow').addClass('hidden');
+		}
+	});
+   }
 });
 
 Template.userProfileInfo.events({
@@ -18,5 +29,11 @@ Template.userProfileInfo.events({
   },
   'click a.following': function(){
     Router.go('following', {name: this.user.username});
+  },
+  'click .follow' : function () {
+	Meteor.call('addFollowing',{followed : this.user._id, follower : $('.currentUser-id').text()});
+  },
+  'click .stop-follow': function () {
+    Meteor.call('removeFollowing',{followed : this.user._id, follower : $('.currentUser-id').text()});
   }
 });
