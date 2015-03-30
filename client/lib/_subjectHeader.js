@@ -25,7 +25,7 @@ Template.subjectHeader.events({
     } else {
       if(Meteor.user()){
         Session.set(SHOW_ADD_NEW_SLASH, true);
-      } else{
+      } else {
         $('#mSignIn').modal('show');
       }
     }

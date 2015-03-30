@@ -2,6 +2,11 @@ Meteor.methods({
   'addDedication': function(dedication){
     Dedications.insert(dedication);
   },
+  'addFollowing' : function(users) {
+    Meteor.users.update({_id: users.followed}, {$addToSet : {followers: users.follower}});
+    Meteor.users.update({_id: users.follower}, {$addToSet : {followings: users.followed}});
+    //Meteor.users.findOne({_id: users.follower});
+  },
   'addNewSlash': function(slash){
     // Only possible if user is connected
     if(Meteor.userdId()){
@@ -17,6 +22,21 @@ Meteor.methods({
       // Update user number of slashs
       Meteor.users.update({_id: Meteor.userId()}, {$inc: {nbSlash: 1}});      
     }
+  },
+  'bFollowing' : function(users) {
+    var e = Meteor.users.findOne({_id: users.follower});
+    var found = false;
+    if(e) {
+      console.log(e);
+      if(typeof e.followings != 'undefined') {
+        e.followings.forEach(function(following) {
+          if(following == users.followed) {
+            found = true;
+          }
+        });
+      }
+    }
+    return found;
   },
   'changeProfilePicture': function(url){
     Meteor.users.update({_id: Meteor.userId()}, {$set: {img: url}});
@@ -46,6 +66,10 @@ Meteor.methods({
   },
   'likeSlash': function(slashId){
     Slashs.update({_id: slashId}, {$inc: {like: 1}})
+  },
+  'removeFollowing' : function(users) {
+  Meteor.users.update({_id: users.followed}, {$pop: {followers: users.follower}});
+  Meteor.users.update({_id: users.follower}, {$pop: {followings: users.followed}});
   }
 });
 

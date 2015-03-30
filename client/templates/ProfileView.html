@@ -4,7 +4,7 @@
       {{> dedication }}
     </div>
     <div class="row user-profile-and-slash">
-      <aside class="user-profile-info">
+      <aside class="user-profile-info" >
         {{> userProfileInfo }}
       </aside>
       <div class="div-slash-list">
@@ -31,6 +31,10 @@
   <a class="following">Following</a><br />
   <a class="followers">Followers</a><br /><br />
   {{#if isNotUserProfile}}
-    <button class="follow btn btn-default">Follow</button>
+	{{#if currentUser}}
+	  <p class="hidden currentUser-id">{{currentUser._id}}</p>
+	  <button class="stop-follow btn btn-danger {{#if bFollowing}}hidden{{/if}}">Stop following</button>
+      <button class="follow btn btn-default">Follow</button>
+	{{/if}}
   {{/if}}
 </template>
