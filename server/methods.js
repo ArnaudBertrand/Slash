@@ -23,21 +23,6 @@ Meteor.methods({
       Meteor.users.update({_id: Meteor.userId()}, {$inc: {nbSlash: 1}});      
     }
   },
-  'bFollowing' : function(users) {
-    var e = Meteor.users.findOne({_id: users.follower});
-    var found = false;
-    if(e) {
-      console.log(e);
-      if(typeof e.followings != 'undefined') {
-        e.followings.forEach(function(following) {
-          if(following == users.followed) {
-            found = true;
-          }
-        });
-      }
-    }
-    return found;
-  },
   'changeProfilePicture': function(url){
     Meteor.users.update({_id: Meteor.userId()}, {$set: {img: url}});
   },

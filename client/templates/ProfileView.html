@@ -31,10 +31,12 @@
   <a class="following">Following</a><br />
   <a class="followers">Followers</a><br /><br />
   {{#if isNotUserProfile}}
-	{{#if currentUser}}
-	  <p class="hidden currentUser-id">{{currentUser._id}}</p>
-	  <button class="stop-follow btn btn-danger {{#if bFollowing}}hidden{{/if}}">Stop following</button>
-      <button class="follow btn btn-default">Follow</button>
-	{{/if}}
+    {{#if currentUser}}
+      {{#if isFollowing}}
+        <button class="stop-follow btn btn-danger">Stop following</button>
+      {{else}}
+        <button class="follow btn btn-default">Follow</button>
+      {{/if}}
+    {{/if}}
   {{/if}}
 </template>
