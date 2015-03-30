@@ -43,7 +43,15 @@ function SlashRemoveBatch (){
   
   function running(){
     var now = new Date();
+    // Insert new slashs
+    var slashsToMove = SlashsWait.find({startDate: {$lte: now}}).fetch();
+    _.each(slashsToMove, function(slash){
+      Slashs.insert(slash);
+    });
+    SlashsWait.remove({startDate: {$lte: now}});
+    // Remove old slashs
     Slashs.remove({endDate: {$lt: now}});
+    
     Meteor.setTimeout(running,1000*(61-now.getSeconds()));    
   }
   this.run = running;
