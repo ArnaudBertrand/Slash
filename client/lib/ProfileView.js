@@ -33,9 +33,9 @@ Template.userProfileInfo.events({
     Router.go('following', {name: this.user.username});
   },
   'click .follow' : function () {
-	Meteor.call('addFollowing',{followed : this.user._id, follower : $('.currentUser-id').text()});
+  	Meteor.call('addFollowing', this.user._id);
   },
   'click .stop-follow': function () {
-    Meteor.call('removeFollowing',{followed : this.user._id, follower : $('.currentUser-id').text()});
+    Meteor.call('removeFollowing', this.user._id);
   }
 });

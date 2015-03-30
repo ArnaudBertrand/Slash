@@ -2,10 +2,9 @@ Meteor.methods({
   'addDedication': function(dedication){
     Dedications.insert(dedication);
   },
-  'addFollowing' : function(users) {
-    Meteor.users.update({_id: users.followed}, {$addToSet : {followers: users.follower}});
-    Meteor.users.update({_id: users.follower}, {$addToSet : {followings: users.followed}});
-    //Meteor.users.findOne({_id: users.follower});
+  'addFollowing' : function(userId) {
+    Meteor.users.update({_id: userId}, {$addToSet : {followers: Meteor.userId()}});
+    Meteor.users.update({_id: Meteor.userId()}, {$addToSet : {followings: userId}});
   },
   'addNewSlash': function(slash){
     // Only possible if user is connected
@@ -52,9 +51,9 @@ Meteor.methods({
   'likeSlash': function(slashId){
     Slashs.update({_id: slashId}, {$inc: {like: 1}})
   },
-  'removeFollowing' : function(users) {
-  Meteor.users.update({_id: users.followed}, {$pop: {followers: users.follower}});
-  Meteor.users.update({_id: users.follower}, {$pop: {followings: users.followed}});
+  'removeFollowing' : function(userId) {
+  Meteor.users.update({_id: userId}, {$pop: {followers: Meteor.userId()}});
+  Meteor.users.update({_id: Meteor.userId()}, {$pop: {followings: userId}});
   }
 });
 
