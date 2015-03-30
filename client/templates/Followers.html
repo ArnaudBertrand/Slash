@@ -4,7 +4,7 @@
         <button type="button" class="btn btn-default btn-back">
           <span class="glyphicon glyphicon-chevron-left"></span>Back
         </button>
-        <h3 class="follower-title">My Followers</h3>
+        <h3 class="follower-title">{{profileUsername}} - Followers</h3>
       </div>
       <div class="row">
         <ul>
@@ -23,7 +23,7 @@
         <div class="user-info">
           <h4>{{ username }}</h4>
           <p>{{ name }}</p>
-          <p>{{ followers }} Followers - {{following}} following</p>
+          <p>{{ getNbFollowers this }} Followers - {{ getNbFollowing this }} Following</p>
         </div>
       </div>
     </li>
