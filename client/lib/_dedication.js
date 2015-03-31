@@ -17,7 +17,7 @@ Template.dedication.created = function(){
 }
 Template.dedication.helpers({
   currentDedication: function(){
-    return Dedications.findOne();
+    return Dedications.findOne({},{sort: {date: 1}});
   }
 });
 

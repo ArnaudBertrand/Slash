@@ -11,11 +11,12 @@ function DedicationBatch (){
 
     this.update = function(){
       this.randomMessages = [
-        'Hello first message',
-        'Hello second message',
-        'Hello third message',
-        'Hello fourth message',
-        'Hello fifth message'
+        'Messages can be sorted by like, dislike or time',
+        'Create any post in any subject you want, world is yours',
+        'Send a message here by click on the + right here ==>',
+        'Invite your friends to share the experience :)',
+        'The default value for a slash to exist is one day',
+        'All slashs you send will be deleted after the deadline you fix !'
       ];
 
       var dediSize = Dedications.find({}).count();
@@ -25,7 +26,7 @@ function DedicationBatch (){
         Dedications.insert({text: this.randomMessages[i], date: Date.now()});
       }
       // Delete the first dedication
-      var firstDedi = Dedications.findOne();
+      var firstDedi = Dedications.findOne({},{sort: {date: 1}});
       Dedications.remove({_id: firstDedi._id});
     }
 

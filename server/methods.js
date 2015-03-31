@@ -63,8 +63,6 @@ Meteor.methods({
     Meteor.users.update({_id: Meteor.userId()}, {$pop: {followings: userId}});
   },
   'removeNotification': function(notifId){
-    console.log(notifId);
-    console.log(Meteor.userId());
     Notifications.remove({_id: notifId, receiver: Meteor.userId()});
   }
 });
