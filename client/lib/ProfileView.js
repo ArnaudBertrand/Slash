@@ -19,6 +19,20 @@ Template.userProfileInfo.helpers({
       });      
     }
     return follow;
+  },
+  'quality': function(){
+    var quality = 0;
+    if(this.user){
+      var user = Meteor.users.findOne({username: this.user.username});
+      if(user){
+        var dislike = user.nbDislike || 0;
+        var like = user.nbLike || 0;
+        if(like !== 0){
+          quality = Math.round(100*(like/(like+dislike)));
+        }
+      }
+    }
+    return quality;
   }
 });
 

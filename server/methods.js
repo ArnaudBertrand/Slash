@@ -32,8 +32,11 @@ Meteor.methods({
   'changeProfilePicture': function(url){
     Meteor.users.update({_id: Meteor.userId()}, {$set: {img: url}});
   },
-  'dislikeSlash': function(slashId){
+  'dislikeSlash': function(args){
+    var slashId = args[0];
+    var authorId = args[1];
     Slashs.update({_id: slashId}, {$inc: {dislike: 1}})
+    Meteor.users.update({_id: authorId}, {$inc: {nbDislike: 1}});
   },
   'findSubjectByName': function(name){
     return Subjects.findOne({name: name});
@@ -55,8 +58,11 @@ Meteor.methods({
     }
     return Subjects.findOne({name: name});
   },
-  'likeSlash': function(slashId){
-    Slashs.update({_id: slashId}, {$inc: {like: 1}})
+  'likeSlash': function(args){
+    var slashId = args[0];
+    var authorId = args[1];
+    Slashs.update({_id: slashId}, {$inc: {like: 1}});
+    Meteor.users.update({_id: authorId}, {$inc: {nbLike: 1}});
   },
   'removeFollowing': function(userId) {
     Meteor.users.update({_id: userId}, {$pop: {followers: Meteor.userId()}});

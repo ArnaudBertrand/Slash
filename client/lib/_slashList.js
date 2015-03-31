@@ -27,7 +27,6 @@ Template.slashList.helpers({
     }
 
     var slashList = Slashs.find({},options).fetch();
-    console.log(slashList);
     var routeName = Router.current().route.getName();
     if(ROUTE_PROFILE_VIEW !== routeName){
       slashList.forEach(function(slash){
@@ -42,10 +41,10 @@ Template.slashList.helpers({
 Template.slashList.events({
   'click .fa-thumbs-o-up:not(.activated)': function(event){
     event.target.className = event.target.className + " activated";
-    Meteor.call('likeSlash',this._id);
+    Meteor.call('likeSlash',[this._id, this.authorId]);
   },
   'click .fa-thumbs-o-down:not(.activated)': function(){
     event.target.className = event.target.className + " activated";
-    Meteor.call('dislikeSlash',this._id);
+    Meteor.call('dislikeSlash',[this._id, this.authorId]);
   }
 });
