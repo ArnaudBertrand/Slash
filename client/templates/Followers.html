@@ -19,7 +19,15 @@
 <template name="followerListItem">
     <li>
       <div>
-        <a href="" class="follower-pic-link"><img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a>
+        {{#if picture }}
+          <a href="{{pathFor 'profileView' name=username}}" class="follower-pic-link">
+            <img alt="profile picture" src="{{picture.url store='profileImage'}}" />
+          </a>
+        {{else}}
+          <a href="{{pathFor 'profileView' name=username}}" class="follower-pic-link">
+            <img class="img-responsive user-photo" alt="profile picture" src="/img/noprofile.jpg" />
+          </a>
+        {{/if}}
         <div class="user-info">
           <h4>{{ username }}</h4>
           <p>{{ name }}</p>

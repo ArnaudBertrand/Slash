@@ -1,7 +1,12 @@
 Template.followers.helpers({
   'followers': function(){
     var user = Meteor.users.findOne({username: this.profileUsername}) || {};
-    return user.followers ? Meteor.users.find({_id: {$in: user.followers}}).fetch() : [];
+    var followers = user.followers ? Meteor.users.find({_id: {$in: user.followers}}).fetch() : [];
+
+    followers.forEach(function(user){
+      user.picture = profileImage.findOne({_id: user.img});
+    });
+    return followers;
   }
 });
 
