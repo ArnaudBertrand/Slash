@@ -1,8 +1,24 @@
-Template.profileView.helpers({
-  emptySlashList: function(){
-    return (Slashs.find().count() == 0);
-  }
-});
+var TIMEOUT_FIND_PROFILE = 5000;
+
+Template.profileView.rendered = function(){
+  // Set a time out to find the user profile  
+  var timeout = Meteor.setTimeout(function(){
+    $('.profile-view .loading-profile p').text('Profile not found, please search again.');
+  },TIMEOUT_FIND_PROFILE);
+
+  // Find the user profile
+  this.autorun(function() {
+    var router = Router.current();
+    if (router.profileSubscription.ready()){
+      if(Meteor.users.find({username: router.params.name}).count()){
+        $('.profile-view .loading-profile').hide();
+        $('.profile-view .user-profile-and-slash').show();
+        Meteor.clearTimeout(timeout);
+      }
+    }
+  });
+}
+
 
 Template.userProfileInfo.helpers({
   'profilePicture': function(){
@@ -34,6 +50,9 @@ Template.userProfileInfo.helpers({
       }
     }
     return quality;
+  },
+  profileReady: function(){
+    return Router.current().profileSubscription.ready();
   }
 });
 

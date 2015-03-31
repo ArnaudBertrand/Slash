@@ -1,5 +1,24 @@
+var TIMEOUT_FIND_PROFILE = 5000;
+
 Template.profileComplete.rendered = function(){
+  // Hide all edit fields
   $('.profile-complete .user-information .field-edit').hide();
+  // Set a time out to find the user profile  
+  var timeout = Meteor.setTimeout(function(){
+    $('.profile-complete .loading-profile p').text('Profile not found, please search again.');
+  },TIMEOUT_FIND_PROFILE);
+
+  // Find the user profile
+  this.autorun(function() {
+    var router = Router.current();
+    if (router.profileSubscription.ready()){
+      if(Meteor.users.find({username: router.params.name}).count()){
+        $('.profile-complete .loading-profile').hide();
+        $('.profile-complete .loaded-profile').show();
+        Meteor.clearTimeout(timeout);
+      }
+    }
+  });
 };
 
 Template.profileComplete.helpers({

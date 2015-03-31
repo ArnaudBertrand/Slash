@@ -44,7 +44,7 @@ Meteor.publish("notificationsByUsername", function(username){
 /** Profile **/
 Meteor.publish("slashsByUsername", function(username){
   var user = Meteor.users.findOne({username: username}, {fields: {_id: 1}});
-  return Slashs.find({authorId: user._id});
+  return (typeof user !== 'undefined') ? Slashs.find({authorId: user._id}) : [];
 });
 
 Meteor.publish("userProfile", function(username){
@@ -53,7 +53,7 @@ Meteor.publish("userProfile", function(username){
 
 Meteor.publish("profileImage", function(username){
   var user = Meteor.users.findOne({username: username});
-  return profileImage.find({_id: user.img});
+  return (typeof user !== 'undefined') ? profileImage.find({_id: user.img}) : [];
 });
 
 /** Subjects **/

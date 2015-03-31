@@ -3,16 +3,15 @@
     <div class="row row-dedication">
       {{> dedication }}
     </div>
+    <div class="loading-profile">
+      <p>Loading the user profile...</p>
+    </div>
     <div class="row user-profile-and-slash">
       <aside class="user-profile-info" >
         {{> userProfileInfo }}
       </aside>
       <div class="div-slash-list">
-        {{#if emptySlashList}}
-          <p class="no-slashs">No active slashs</p>
-        {{else}}
-          {{> slashList }}
-        {{/if}}
+        {{> slashList }}
       </div>
     </div>
   </div>
