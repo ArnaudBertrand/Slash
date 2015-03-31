@@ -44,7 +44,7 @@ Template.slashList.events({
     Meteor.call('likeSlash',[this._id, this.authorId]);
   },
   'click .fa-thumbs-o-down:not(.activated)': function(){
-    event.target.className = event.target.className + " activated";
     Meteor.call('dislikeSlash',[this._id, this.authorId]);
+    event.target.className = event.target.className + " activated";
   }
 });
