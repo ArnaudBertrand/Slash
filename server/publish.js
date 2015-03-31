@@ -35,6 +35,11 @@ Meteor.publish("following", function (username) {
   }
   return [];
 });
+/** Notifications **/
+Meteor.publish("notificationsByUsername", function(username){
+  var user = Meteor.users.findOne({username: username}, {fields: {_id: 1}});
+  return Notifications.find({receiver: user._id});
+});
 
 /** Profile **/
 Meteor.publish("slashsByUsername", function(username){

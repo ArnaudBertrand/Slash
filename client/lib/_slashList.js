@@ -12,7 +12,6 @@ Template.slashList.helpers({
   var slashList = Slashs.find().fetch();
   var routeName = Router.current().route.getName();
     if(ROUTE_PROFILE_VIEW !== routeName){
-      console.log(slashList);
       slashList.forEach(function(slash){
         slash.author = Meteor.users.findOne({_id: slash.authorId});
         slash.picture = profileImage.findOne({_id: slash.author.img});

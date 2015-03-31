@@ -8,7 +8,7 @@ Meteor.methods({
   },
   'addNewSlash': function(slash){
     // Only possible if user is connected
-    if(Meteor.userdId()){
+    if(Meteor.userId()){
       // Set default values
       slash.like = 0;
       slash.dislike = 0;
@@ -19,7 +19,14 @@ Meteor.methods({
         SlashsWait.insert(slash);
       }
       // Update user number of slashs
-      Meteor.users.update({_id: Meteor.userId()}, {$inc: {nbSlash: 1}});      
+      Meteor.users.update({_id: Meteor.userId()}, {$inc: {nbSlash: 1}});
+      // Send notificatiosn to all followers
+      var user = Meteor.users.findOne({_id: Meteor.userId()},{followers: 1});
+      user.followers.forEach(function(userId){
+        Notifications.insert({receiver: userId, message: Meteor.user().username 
+          + " sent a new slash", pathFor: { name: "profileView", params: [Meteor.user().username]}});
+      });
+
     }
   },
   'changeProfilePicture': function(url){
@@ -51,9 +58,14 @@ Meteor.methods({
   'likeSlash': function(slashId){
     Slashs.update({_id: slashId}, {$inc: {like: 1}})
   },
-  'removeFollowing' : function(userId) {
-  Meteor.users.update({_id: userId}, {$pop: {followers: Meteor.userId()}});
-  Meteor.users.update({_id: Meteor.userId()}, {$pop: {followings: userId}});
+  'removeFollowing': function(userId) {
+    Meteor.users.update({_id: userId}, {$pop: {followers: Meteor.userId()}});
+    Meteor.users.update({_id: Meteor.userId()}, {$pop: {followings: userId}});
+  },
+  'removeNotification': function(notifId){
+    console.log(notifId);
+    console.log(Meteor.userId());
+    Notifications.remove({_id: notifId, receiver: Meteor.userId()});
   }
 });
 
