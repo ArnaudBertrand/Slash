@@ -31,7 +31,7 @@ Template.profileComplete.helpers({
   }
 });
 
-var cancelEdit = function(template){
+var closeEdit = function(template){
   // Show text and hide inputs
   template.$('.user-information .field-value').show();
   template.$('.user-information .field-edit').hide();
@@ -41,7 +41,7 @@ var cancelEdit = function(template){
   template.$('.btn-validate').hide();
 }
 
-var closeEdit = function(template){
+var edit = function(template){
   // Hide text and show inputs
   template.$('.user-information .field-edit').show();
   template.$('.user-information .field-value').hide();
