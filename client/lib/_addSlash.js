@@ -74,7 +74,7 @@ Template.addSlash.events({
 
         Meteor.call('addNewSlash',slashToAdd);        
       } else {
-        Session.set(ERROR_KEY, 'Message too short, at least 10 words.');
+        Session.set(ERROR_KEY, 'Message too short, at least 10 characters.');
         return false;
       }
 
