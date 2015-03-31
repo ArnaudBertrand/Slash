@@ -1,5 +1,6 @@
 Meteor.methods({
   'addDedication': function(dedication){
+    dedication.date = Date.now();
     Dedications.insert(dedication);
   },
   'addFollowing' : function(userId) {

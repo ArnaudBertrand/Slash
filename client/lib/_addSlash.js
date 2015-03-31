@@ -1,8 +1,6 @@
-/**
-*** TODO: Deal with errors in adding
-**/
-
 var ERROR_KEY = 'addNewSlashErrors';
+var ERROR_USER_NOT_CONNECTED = 'User not connected, please login.';
+var ERROR_MESSAGE_TOO_SHORT = 'Message too short, at least 10 characters.';
 
 Template.addSlash.created = function() {
   Session.set(ERROR_KEY, '');
@@ -14,20 +12,19 @@ Template.addSlash.helpers({
   }
 });
 
-Template.addSlash.rendered = function (){
+var renderAdd = function(){
   $('.add-slash-form').hide();
   $('.add-slash-form').slideDown("slow");
   $('.add-new-slash i').removeClass("fa-plus");
   $('.add-new-slash i').addClass("fa-minus");
-
-  // Date
   $('.datetimepicker').datetimepicker();
-  //$('.datetimepicker.start-date').data("DateTimePicker").minDate(Date.now());
-  // Date bounds
-  //console.log(date());
+}
+
+Template.addSlash.rendered = function (){
+  // Render add slash
+  renderAdd();
+  // Date
   $('.datetimepicker.start-date').on("dp.change",function(e){
-    console.log(e.date);
-    console.log(e.date.toDate());
     $('.datetimepicker.end-date').data("DateTimePicker").minDate(e.date);
   });
   $('.datetimepicker.end-date').on("dp.change",function(e){
@@ -37,7 +34,7 @@ Template.addSlash.rendered = function (){
 
 Template.addSlash.destroyed = function(){
   $('.add-new-slash i').removeClass("fa-minus");
-  $('.add-new-slash i').addClass("fa-plus");
+  $('.add-new-slash i').addClass("fa-plus");  
 }
 
 Template.addSlash.events({
@@ -74,12 +71,12 @@ Template.addSlash.events({
 
         Meteor.call('addNewSlash',slashToAdd);        
       } else {
-        Session.set(ERROR_KEY, 'Message too short, at least 10 characters.');
+        Session.set(ERROR_KEY, ERROR_MESSAGE_TOO_SHORT);
         return false;
       }
 
     } else {
-      Session.set(ERROR_KEY, 'User not connected, please login.');
+      Session.set(ERROR_KEY, ERROR_USER_NOT_CONNECTED);
       return false;
     }
   }

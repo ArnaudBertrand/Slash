@@ -1,7 +1,8 @@
 Template.profileView.helpers({
   emptySlashList: function(){
     return (Slashs.find().count() == 0);
-  }});
+  }
+});
 
 Template.userProfileInfo.helpers({
   'profilePicture': function(){
