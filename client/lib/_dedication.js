@@ -34,11 +34,11 @@ Template.dedication.events({
     // Add dedication
     var dedic = {};
     dedic.author = Meteor.user();
-    dedic.text = $('#add-dedication-popup .dedication-text').val();
+    dedic.text = $('#add-dedication-popup [name=dedication-text]').val();
     Meteor.call('addDedication',dedic);
 
     // Reset
-    $('#add-dedication-popup .dedication-text').val('')
+    $('#add-dedication-popup [name=dedication-text]').val('')
     $('#add-dedication-popup').addClass('hidden');
   }
 });
