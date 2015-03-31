@@ -72,6 +72,10 @@ Meteor.publish("slashUsers", function (subjectName) {
       users.push(slash.authorId);
     }
   });
+  // Add current user
+  if(this.userId){
+    users.push(this.userId);    
+  }
   var userCursor = Meteor.users.find({_id: {$in: users}});
 
   var picturesId = [];

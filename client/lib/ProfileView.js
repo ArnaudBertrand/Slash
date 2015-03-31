@@ -50,9 +50,6 @@ Template.userProfileInfo.helpers({
       }
     }
     return quality;
-  },
-  profileReady: function(){
-    return Router.current().profileSubscription.ready();
   }
 });
 

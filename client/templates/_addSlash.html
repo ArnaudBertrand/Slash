@@ -5,9 +5,12 @@
         <tr class="table-row">
           <td class="display-add-message user-info">
               <p>{{ currentUser.username }}</p>
-              <img alt="My 24th Birthday!" src="https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg" />
-              <p>@messages@</p>
-              <p>@quality@</p>
+              {{#if userPicture }}
+                <a href="{{pathFor 'profileView' name=currentUser.username}}" class="picture-link"><img alt="profile picture" src="{{userPicture.url store='profileImage'}}" /></a>
+              {{else}}
+                <a href="{{pathFor 'profileView' name=currentUser.username}}" class="picture-link"><img alt="profile picture" src="/img/noprofile.jpg" /></a>
+              {{/if}}
+              <p>{{nbMessage}} message</p>
           </td>
           <td class="slash-central">
             <div class="input-group datetimepicker start-date">

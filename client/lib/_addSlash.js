@@ -10,6 +10,24 @@ Template.addSlash.created = function() {
 Template.addSlash.helpers({
   errorMessage: function() {
     return Session.get(ERROR_KEY);
+  },
+  userPicture: function(){
+    var picture = null;
+    if(Meteor.userId()){
+      var user = Meteor.users.findOne({_id: Meteor.userId()});
+      if(typeof user !== 'undefined'){
+        picture = profileImage.findOne({_id: user.img});
+      }
+    }
+    return picture;
+  },
+  nbMessage: function(){
+    var nb = 0;
+    if(Meteor.userId()){
+      var user = Meteor.users.findOne({_id: Meteor.userId()},{nbMessage: 1});
+      nb = user.nbSlash;
+    }
+    return nb;
   }
 });
 
