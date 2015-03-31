@@ -45,10 +45,13 @@ Template.header.events({
     }
   },
   "click .puce.menuNotif": function(event,template){
-    template.$('.notifications').toggle();
-    var xPos = event.pageX - 100;
-    var yPos = event.pageY + 20;
-    template.$('.notifications').css({"left": xPos, "top": yPos});
+    // Display only if there are some notifications
+    if(template.$('.notifications').has('ul').length){
+      template.$('.notifications').toggle();
+      var xPos = event.pageX - 100;
+      var yPos = event.pageY + 20;
+      template.$('.notifications').css({"left": xPos, "top": yPos});      
+    }
   },
   "click .puce.menuPowerOff": function(event){
     Meteor.logout();
