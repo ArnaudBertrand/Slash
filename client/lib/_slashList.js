@@ -1,7 +1,9 @@
 var ROUTE_PROFILE_VIEW = 'profileView';
+var SORT_METHOD = 'slashsSortMethod';
 
-Template.slashList.helpers({
-});
+Template.slashList.rendered = function(){
+  Session.setDefault(SORT_METHOD, 'likeUp');
+};
 
 Template.slashList.helpers({
   showUserInfo: function() {
@@ -9,8 +11,24 @@ Template.slashList.helpers({
     return ROUTE_PROFILE_VIEW !== routeName;
   },
   slashList: function(){
-  var slashList = Slashs.find().fetch();
-  var routeName = Router.current().route.getName();
+    var sort = Session.get(SORT_METHOD);
+    var options = {};
+    if(sort === 'likeUp'){
+      options.sort = {like: -1};
+    }
+    if(sort === 'likeDown'){
+      options.sort = {like: 1};      
+    }
+    if(sort === 'maxTime'){
+      options.sort = {endDate: -1};
+    }
+    if(sort === 'minTime'){
+      options.sort = {endDate: 1};      
+    }
+
+    var slashList = Slashs.find({},options).fetch();
+    console.log(slashList);
+    var routeName = Router.current().route.getName();
     if(ROUTE_PROFILE_VIEW !== routeName){
       slashList.forEach(function(slash){
         slash.author = Meteor.users.findOne({_id: slash.authorId});

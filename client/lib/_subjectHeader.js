@@ -2,7 +2,11 @@
 *** TODO: handle online users
 **/
 var SHOW_ADD_NEW_SLASH = 'showAddNewSlash';
-Session.setDefault(SHOW_ADD_NEW_SLASH, false);
+var SORT_METHOD = 'slashsSortMethod';
+
+Template.subjectHeader.rendered = function(){
+  Session.setDefault(SHOW_ADD_NEW_SLASH, false);
+}
 
 Template.subjectHeader.helpers({
   title: function(){
@@ -29,5 +33,12 @@ Template.subjectHeader.events({
         $('#mSignIn').modal('show');
       }
     }
+  },
+  'click .sort-by':function(event,template){
+    template.$('.sort-dropdown').toggle();
+  },
+  'click .sort-dropdown .sort-item': function(event,template){
+    Session.set(SORT_METHOD, event.target.dataset.sort);
+    template.$('.sort-dropdown').hide();
   }
 });

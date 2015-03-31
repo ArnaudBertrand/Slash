@@ -55,7 +55,6 @@ Template.header.events({
   },
   "submit .searchSlash" : function(event){
     var name = event.target.searchSlash.value
-    //var subject = Subjects.findOne(name);
     Router.go("subject",{name: name});
     return false;
   },
