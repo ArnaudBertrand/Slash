@@ -28,6 +28,9 @@ Template.profileComplete.helpers({
       return {checked: 'checked'};
     }
     return {};
+  },
+  'profilePicture': function(){
+    return profileImage.findOne();
   }
 });
 
