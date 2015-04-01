@@ -59,6 +59,9 @@ Meteor.methods({
     }
     return Subjects.findOne({name: name});
   },
+  'isUserExisting': function(username){
+    return Meteor.users.find({username: username}).count();
+  },
   'likeSlash': function(args){
     var slashId = args[0];
     var authorId = args[1];

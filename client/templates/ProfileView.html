@@ -6,6 +6,17 @@
     <div class="loading-profile">
       <p>Loading the user profile...</p>
     </div>
+    <div class="row">
+      <form class="search-user input-group">
+        <input name="search-user" class="form-control" placeholder="Search user"/>
+        <div class="input-group-btn">
+          <button class="btn btn-success">Find</button>
+        </div>
+      </form>
+      {{#if errorSearchUser}}
+        <p class="error">User not existing</p>
+      {{/if}}
+    </div>
     <div class="row user-profile-and-slash">
       <aside class="user-profile-info" >
         {{> userProfileInfo }}
