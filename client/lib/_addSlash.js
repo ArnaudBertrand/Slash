@@ -13,6 +13,7 @@ Template.addSlash.helpers({
   },
   userPicture: function(){
     var picture = null;
+    // Get the picture of current user
     if(Meteor.userId()){
       var user = Meteor.users.findOne({_id: Meteor.userId()});
       if(typeof user !== 'undefined'){
@@ -23,6 +24,7 @@ Template.addSlash.helpers({
   },
   nbMessage: function(){
     var nb = 0;
+    // Get user nb of messages
     if(Meteor.userId()){
       var user = Meteor.users.findOne({_id: Meteor.userId()},{nbMessage: 1});
       nb = user.nbSlash;
@@ -55,8 +57,9 @@ Template.addSlash.events({
       // Message
       slashToAdd.message = template.$('.add-slash-form #slash-message').val();
 
-      if(slashToAdd.message.length > 10){
-        // Start
+      // Force message to be 10 char minimum
+      if(slashToAdd.message.length > 9){
+        // Start date
         var sDate = $('.start-date input').val();
         if(sDate !== ''){
           slashToAdd.startDate = new Date(sDate);
@@ -64,7 +67,7 @@ Template.addSlash.events({
           slashToAdd.startDate = new Date(Date.now());
         }
 
-        // End
+        // End date
         var eDate = $('.end-date input').val();
         if(eDate !== ''){
           slashToAdd.endDate = new Date(eDate);
@@ -76,6 +79,7 @@ Template.addSlash.events({
         var current = Router.current();
         slashToAdd.subject = current.params.name;
 
+        // Add slash
         Meteor.call('addNewSlash',slashToAdd);        
         resetAddNewSlash(template);
       } else {

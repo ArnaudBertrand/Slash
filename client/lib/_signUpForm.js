@@ -17,17 +17,17 @@ Template.signUpForm.helpers({
 Template.signUpForm.events({
   'submit': function(event, template){
     event.preventDefault();
-
+    // Get username and password
     var username = template.$('[name=username]').val();
     var password = template.$('[name=password]').val();
     var confirmPassword = template.$('[name=confirmPassword]').val();
 
     var errors = {};
 
+    // Check errors
     if (! username) {
       errors.username = 'Username required';
     }
-
     if (! password || ! confirmPassword) {
       errors.password = 'Password required';
     } else if (password !== confirmPassword){
@@ -35,20 +35,24 @@ Template.signUpForm.events({
     }
 
     Session.set(ERRORS_KEY, errors);
-
-    if (!_.keys(errors).length) {
-      Accounts.createUser({
-        username: username,
-        password: password
-      }, function(error){
-        if (error) {
-          return Session.set(ERRORS_KEY, {'none': error.reason});
-        } else {
-          $('#mSignUp').modal('hide');
-        }
-      });
+    // Cancel if error
+    if (_.keys(errors).length) {
+      return;
     }
 
+    // Create user
+    Accounts.createUser({
+      username: username,
+      password: password
+    }, function(error){
+      if (error) {
+        return Session.set(ERRORS_KEY, {'none': error.reason});
+      } else {
+        $('#mSignUp').modal('hide');
+      }
+    });
+
+    // Cancel post
     return false;
   }
 });

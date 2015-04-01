@@ -9,7 +9,7 @@ Template.dedication.created = function(){
         dediText += ' - <a class="link">' + currentDedication.author.username + '</a>';
       }
       dediText += '</span>';
-
+      // Transition between slashs
       $('.dedication-text').animate({opacity: 0}, 1000, function(){
         $('.dedication-text').html(dediText).animate({opacity: 1}, 1000);
       });

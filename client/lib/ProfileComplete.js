@@ -22,9 +22,17 @@ Template.profileComplete.rendered = function(){
 };
 
 Template.profileComplete.helpers({
+  'dateJoined': function(){
+    var date = "No date";
+    var user = Meteor.users.findOne({_id:Meteor.userId()});
+    if(user){
+      date = user.createdAt.toDateString();
+    }
+    return date;
+  },
   'genderChecked': function(val){
     var selectedUser = Meteor.user();
-    if(selectedUser && selectedUser.profile.gender === val){
+    if(selectedUser && selectUser.profile.gender && selectedUser.profile.gender === val){
       return {checked: 'checked'};
     }
     return {};
@@ -56,6 +64,7 @@ var edit = function(template){
 
 Template.profileComplete.events({
   'change #image-to-upload':function(event,template){
+    // Insert new picture
     FS.Utility.eachFile(event, function(file) {
       profileImage.insert(file, function (err, fileObj) {
         if(err){
@@ -63,6 +72,7 @@ Template.profileComplete.events({
         } else {
           Meteor.call('changeProfilePicture', fileObj._id, function(){
             var currentRouter = Router.current();
+            // Restart imgSubscription
             currentRouter.imgSubscription.stop();
             currentRouter.imgSubscription = Meteor.subscribe('profileImage', Router.current().params.name);
           });

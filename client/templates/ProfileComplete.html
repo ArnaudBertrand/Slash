@@ -5,13 +5,13 @@
         <button type="button" class="btn btn-default btn-back">
           <span class="glyphicon glyphicon-chevron-left"></span>Back
         </button>
-        <p class="profile-username">{{user.username}} <small class="inscription-date">joined {{user.createdAt}}</small></p>
+        <p class="profile-username">{{user.username}} <small class="inscription-date">joined {{dateJoined}}</small></p>
       </div>
       <div class="user-picture"> 
         {{#if profilePicture}}
-          <img alt="profile picture" class="image-preview" src="{{profilePicture.url store='profileImage'}}">
+          <img alt="profile picture" src="{{profilePicture.url store='profileImage'}}">
         {{else}}
-           <img alt="profile picture" class="image-preview" src="/img/noprofile.jpg" />
+           <img alt="profile picture" src="/img/noprofile.jpg" />
         {{/if}}
         <br />
         <form class="image-to-upload-button">
@@ -54,7 +54,7 @@
           <div class="field user-description">
             <div class="field-name">Description</div>
             <div class="field-value">{{user.profile.description}}&nbsp;</div>
-            <div class="field-edit display-none"><textarea type="tel" class="form-control">{{user.profile.description}}</textarea></div>
+            <div class="field-edit display-none"><textarea class="form-control">{{user.profile.description}}</textarea></div>
           </div>
         </div>
         {{#if isUserProfile}}

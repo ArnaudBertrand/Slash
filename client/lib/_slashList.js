@@ -11,6 +11,7 @@ Template.slashList.helpers({
     return ROUTE_PROFILE_VIEW !== routeName;
   },
   slashList: function(){
+    // Get sorting options
     var sort = Session.get(SORT_METHOD);
     var options = {};
     if(sort === 'likeUp'){
@@ -26,7 +27,10 @@ Template.slashList.helpers({
       options.sort = {endDate: 1};      
     }
 
+    // Set options
     var slashList = Slashs.find({},options).fetch();
+
+    // Get slashs with pictures
     var routeName = Router.current().route.getName();
     if(ROUTE_PROFILE_VIEW !== routeName){
       slashList.forEach(function(slash){

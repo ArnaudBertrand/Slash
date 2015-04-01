@@ -1,38 +1,43 @@
 <template name="slashList">
-  {{#if slashList}}
-    {{#each slashList}}
-      <table class="slash">
-        <tr>
-          {{#if showUserInfo }}
-            <td class="user-info">
-              <p>{{author.username}}</p>
-              {{#if picture }}
-                <a href="{{pathFor 'profileView' name=author.username}}" class="picture-link"><img alt="profile picture" src="{{picture.url store='profileImage'}}" /></a>
-              {{else}}
-                <a href="{{pathFor 'profileView' name=author.username}}" class="picture-link"><img alt="profile picture" src="/img/noprofile.jpg" /></a>
-              {{/if}}
-              <p>{{author.nbSlash}} slashs</p>
+  <div class="slash-list">
+    {{#if slashList}}
+      {{#each slashList}}
+        <table class="slash">
+          <tr>
+            {{#if showUserInfo }}
+              <td class="user-info">
+                <p>{{author.username}}</p>
+                {{#if picture }}
+                  <a href="{{pathFor 'profileView' name=author.username}}" class="picture-link">
+                    <img alt="profile picture" src="{{picture.url store='profileImage'}}" />
+                  </a>
+                {{else}}
+                  <a href="{{pathFor 'profileView' name=author.username}}" class="picture-link">
+                    <img alt="profile picture" src="/img/noprofile.jpg" />
+                  </a>
+                {{/if}}
+                <p>{{author.nbSlash}} slashs</p>
+              </td>
+            {{/if}}
+            <td class="slash-central">
+              <div class="slash-info">
+                <i class="fa fa-thumbs-o-up"></i>{{like}}
+                <i class="fa fa-thumbs-o-down"></i>{{dislike}}
+              </div>
+              <div class="slash-message">
+                <p class="desc col-md-12">{{message}}</p>
+              </div>
             </td>
-          {{/if}}
-          <td class="slash-central">
-            <div class="slash-info">
-              <i class="fa fa-thumbs-o-up"></i>{{like}}
-              <i class="fa fa-thumbs-o-down"></i>{{dislike}}
-            </div>
-            <div class="slash-message">
-              <p class="desc col-md-12">{{message}}</p>
-            </div>
-          </td>
-          <td class="slash-social">
-            <i class="action vote-up fa fa-thumbs-o-up"></i>
-            <i class="action vote-down fa fa-thumbs-o-down"></i>
-            <i class="action comment fa fa-comment"></i>
-            <i class="action alert fa fa-exclamation-triangle"></i>
-          </td>
-        </tr>
-      </table>
-    {{/each}}
-  {{else}}
-    <p class="no-slashs">No active slashs</p>
-  {{/if}}
+            <td class="slash-social">
+              <i class="action vote-up fa fa-thumbs-o-up"></i>
+              <i class="action vote-down fa fa-thumbs-o-down"></i>
+              <i class="action alert fa fa-exclamation-triangle"></i>
+            </td>
+          </tr>
+        </table>
+      {{/each}}
+    {{else}}
+      <p class="no-slashs">No active slashs</p>
+    {{/if}}
+  </div>
 </template>

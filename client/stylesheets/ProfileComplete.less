@@ -2,93 +2,92 @@
   background: #fff;
   min-height: 100vh;
   padding-top: 30px;
+
   .loaded-profile{
     display: none;
-  }
 
-  .top{
-    border-bottom: 1px solid #ccc;
-    padding: 0px 50px 10px 50px;
-    margin-bottom: 20px;
+    .top{
+      border-bottom: 1px solid #ccc;
+      padding: 0px 50px 10px 50px;
+      margin-bottom: 20px;
 
-    p{
-      display: inline-block;
-      font-size: 1.3em;
-    }
-  }
-
-  .user-information-container{
-    display: inline-block;
-    width: 70%;
-  }
-
-  .user-information .field {
-      width: 80%;
-      border-top: 1px solid rgb(221, 221, 221);
-
-      div{
+      p{
         display: inline-block;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        height: 50px;
+        font-size: 1.3em;
       }
 
-      .field-name{
-        width: 20%;
+      .profile-username{
+        margin-left: 50px;
       }
-
-      .field-value, .field-edit{
-        width: 70%; 
-      }
-  }
-
-  .profile-username{
-    margin-left: 50px;
-  }
-
-  .user-picture{
-    display: inline-block;
-    text-align: center;
-    width: 20%;
-    vertical-align: top;
-    margin-right: 20px;
-    img{
-      max-width: 100%;
-      margin: 10px auto;
     }
-  }
 
-  .form-buttons{
-    text-align: center;
-  }
+    .user-information-container{
+      display: inline-block;
+      width: 70%;
 
-  .image-preview{
-    margin:auto;
-  }
- 
-  .image-to-upload-button{
-    position: relative;
-    overflow: hidden;
-    margin: 0px;   
-    color: #333;
-    background-color: #fff;
-    border: 1px solid #ccc;  
- 
-    input{
-      position: absolute;
-      top: 0;
-      right: 0;
-      margin: 0;
-      padding: 0;
-      font-size: 20px;
-      cursor: pointer;
-      opacity: 0;
-      filter: alpha(opacity=0);
+      .user-information .field {
+        width: 80%;
+        border-top: 1px solid rgb(221, 221, 221);
+
+        div{
+          display: inline-block;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          height: 50px;
+        }
+
+        .field-name{
+          width: 20%;
+        }
+
+        .field-value, .field-edit{
+          width: 70%; 
+        }
+      }
+
+      .form-buttons{
+        text-align: center;
+      }
+
+      textarea{
+        resize:none;
+      }
     }
-  }
 
-  textarea{
-    resize:none;
+    .user-picture{
+      display: inline-block;
+      text-align: center;
+      width: 20%;
+      vertical-align: top;
+      margin-right: 20px;
+
+      .image-to-upload-button{
+        position: relative;
+        overflow: hidden;
+        margin: 0px;   
+        color: #333;
+        background-color: #fff;
+        border: 1px solid #ccc;  
+     
+        input{
+          position: absolute;
+          top: 0;
+          right: 0;
+          margin: 0;
+          padding: 0;
+          font-size: 20px;
+          cursor: pointer;
+          opacity: 0;
+          filter: alpha(opacity=0);
+        }
+      }
+
+      img{
+        max-width: 100%;
+        margin: 10px auto;
+      }
+
+    }    
   }
 
   .loading-profile {
@@ -103,14 +102,14 @@
 }
 
 @media screen and (max-width: 700px) {
-  .profile-complete{
+  .profile-complete .loaded-profile{
     .top{
       padding: 0px 0px 10px 0px;
+      .inscription-date{
+        display: none;
+      }    
     }
-    .inscription-date{
-      display: none;
-    }    
-    .user-information .field {
+    .user-information-container .user-information .field {
       width: 100%;
       .field-name{
         width: 30%;
@@ -123,7 +122,7 @@
 }
 
 @media screen and (max-width: 480px) {
-  .profile-complete{
+  .profile-complete .loaded-profile{
     .user-picture{
       display: block;
       margin: 0px auto;

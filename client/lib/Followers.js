@@ -1,8 +1,9 @@
 Template.followers.helpers({
   'followers': function(){
+    // Get followers
     var user = Meteor.users.findOne({username: this.profileUsername}) || {};
     var followers = user.followers ? Meteor.users.find({_id: {$in: user.followers}}).fetch() : [];
-
+    // Get followers pictures
     followers.forEach(function(user){
       user.picture = profileImage.findOne({_id: user.img});
     });

@@ -1,9 +1,10 @@
 var TIMEOUT_FIND_PROFILE = 5000;
+var ERROR_PROFILE_NOT_FOUND = 'Profile not found, please search again.';
 
 Template.profileView.rendered = function(){
   // Set a time out to find the user profile  
   var timeout = Meteor.setTimeout(function(){
-    $('.profile-view .loading-profile p').text('Profile not found, please search again.');
+    $('.profile-view .loading-profile p').text(ERROR_PROFILE_NOT_FOUND);
   },TIMEOUT_FIND_PROFILE);
 
   // Find the user profile
@@ -26,6 +27,7 @@ Template.userProfileInfo.helpers({
   },
   'isFollowing': function(){
     var follow = false;
+    // Check if current user follows the user visited
     var user = Meteor.users.findOne({_id: {$not: Meteor.userId()}},{followers: 1});
     if(user){
       _.each(user.followers, function(user){
@@ -40,6 +42,7 @@ Template.userProfileInfo.helpers({
   'quality': function(){
     var quality = 0;
     if(this.user){
+      // Check the user quality of slash (like/like+dislike)
       var user = Meteor.users.findOne({username: this.user.username});
       if(user){
         var dislike = user.nbDislike || 0;

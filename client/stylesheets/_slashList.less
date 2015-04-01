@@ -1,90 +1,84 @@
 .slash-list{
-  margin-top: 20px;
-}
-
-.no-slashs {
-  width: 100%;
-  padding: 30px 0px;
-  background-color: #ddd;
-  border: 1px solid #777;
-}
-
-.slash{
-  border: 1px solid #777;
-  margin-bottom: 20px;
-
-  .slash-central{
-    background-color: #eeeeee;
-    vertical-align: top;
+  .no-slashs {
     width: 100%;
+    padding: 30px 0px;
+    background-color: #ddd;
+    border: 1px solid #777;
+  }
 
-    .slash-info{
-      border-bottom: 1px solid #444444;
-      margin-bottom: 10px;
+  .slash{
+    border: 1px solid #777;
+    margin-bottom: 20px;
 
-      i{
-        padding-left: 5px;
+    .slash-central{
+      background-color: #eeeeee;
+      vertical-align: top;
+      width: 100%;
+
+      .slash-info{
+        border-bottom: 1px solid #444444;
+        margin-bottom: 10px;
+
+        i{
+          padding-left: 5px;
+        }
+      }
+
+      .slash-message{
+        text-align: center;
+        font-size: 1.5em;
       }
     }
 
-    .slash-message{
+    .slash-social{
+      width: 30px;
       text-align: center;
-      font-size: 1.5em;
-    }
-  }
+      background-color: #2d2a49;
 
-  .slash-social{
-    width: 30px;
-    text-align: center;
-    background-color: #2d2a49;
+      i{
+        padding: 5px;
+        display: block;
+        height: 100%;
+        font-size:1.5em;
+        color: #eeeeee;
+        cursor: pointer; 
+      }
+      
+      .action{
+        width:30px;
+      }
 
-    i{
-      padding: 5px;
-      display: block;
-      height: 100%;
-      font-size:1.5em;
-      color: #eeeeee;
-      cursor: pointer; 
-    }
-    
-    .action{
-      width:30px;
-    }
+      i.vote-up:hover, i.vote-up.activated, i.comment:hover{
+        color: #3f3;
+      }
 
-    .vote-up{
-
+      i.vote-down:hover, i.vote-down.activated, i.alert:hover, i.alert.activated{
+        color: red;
+      }
     }
 
-    i.vote-up:hover, i.vote-up.activated, i.comment:hover{
-      color: #3f3;
-    }
+    .user-info{
+      padding: 5px 15px;
+      width: 150px;
+      border-right: 1px solid #555555;
+      background-color: #839fc2;
+      text-align: center;
 
-    i.vote-down:hover, i.vote-down.activated, i.alert:hover, i.alert.activated{
-      color: red;
-    }
-  }
+      p{
+        margin: 0px;
+      }
 
-  .user-info{
-    padding: 5px 15px;
-    width: 150px;
-    border-right: 1px solid #555555;
-    background-color: #839fc2;
-    text-align: center;
-
-    p{
-      margin: 0px;
-    }
-
-    img{
-      height: 100px;
-      width: 100px;
-      border-radius: 5px 0px 5px 0px;
+      img{
+        height: 100px;
+        width: 100px;
+        border-radius: 5px 0px 5px 0px;
+      }
     }
   }
 }
 
 @media screen and (max-width: 1000px) {
-  .slash .user-info {
+  .slash-list .slash .user-info {
     display: none;
   }
 }

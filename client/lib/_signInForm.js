@@ -17,25 +17,27 @@ Template.signInForm.helpers({
 Template.signInForm.events({
   'submit': function(event, template) {
     event.preventDefault();
-    
+    // Get username and password
     var username = template.$('[name=username]').val();
     var password = template.$('[name=password]').val();
     
     var errors = {};
 
+    // Check errors
     if (! username) {
       errors.username = 'Username is required';
     }
-
     if (! password) {
       errors.password = 'Password is required';
     }
     
+    // Cancel if errors
     Session.set(ERRORS_KEY, errors);
     if (_.keys(errors).length) {
       return;
     }
     
+    // Login
     Meteor.loginWithPassword(username, password, function(error) {
       if (error) {
         return Session.set(ERRORS_KEY, {'none': error.reason});
@@ -44,6 +46,7 @@ Template.signInForm.events({
       }
     });
 
+    // Cancel post
     return false;
   },
   'click .remember-forgot .forgot': function(){

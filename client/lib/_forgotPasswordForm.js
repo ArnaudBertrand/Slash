@@ -3,6 +3,7 @@ var PASSWORD_FORGOT = 'forgotPassword';
 
 Template.forgotPasswordForm.events({
   'submit': function(event, template) {
+    $('#mSignIn').modal('hide');
     return false;
   },
   'click .cancel': function(){

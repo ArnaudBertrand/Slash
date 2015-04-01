@@ -18,6 +18,7 @@ Template.header.created = function(){
       innerHtml += '</ul>';
       $('header .puce.menuNotif').css("background-color", "#3c3");
     } else{
+      // Hide notifications if none
       $('header .puce.menuNotif').css("background-color", "#fff");
       $('header .notifications').hide();
     }

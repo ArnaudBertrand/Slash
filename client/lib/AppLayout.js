@@ -4,6 +4,7 @@ Session.setDefault(SHOW_CONNECTION_ISSUE_KEY, false);
 var CONNECTION_ISSUE_TIMEOUT = 5000;
 
 Meteor.startup(function () {
+  // Check connexion issues
   setTimeout(function () {
     // Show the connection error box
     Session.set(SHOW_CONNECTION_ISSUE_KEY, true);
@@ -12,6 +13,7 @@ Meteor.startup(function () {
 
 
 Template.appBody.rendered = function (){
+  // Handle transition in body
   this.find('#content-container')._uihooks = {
     insertElement: function(node, next) {
       $(node)
