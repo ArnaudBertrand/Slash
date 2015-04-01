@@ -1,4 +1,5 @@
 Fiber = Npm.require('fibers');
+var mongo_url = process.env.MONGOHQ_URL;
 
 /** Batch for dedication publications **/
 function DedicationBatch (){
