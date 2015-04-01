@@ -76,15 +76,14 @@ Template.addSlash.events({
         var current = Router.current();
         slashToAdd.subject = current.params.name;
 
-        //Meteor.call('addNewSlash',slashToAdd);        
+        Meteor.call('addNewSlash',slashToAdd);        
+        resetAddNewSlash(template);
       } else {
         Session.set(ERROR_KEY, ERROR_MESSAGE_TOO_SHORT);
       }
     } else {
       Session.set(ERROR_KEY, ERROR_USER_NOT_CONNECTED);
     }
-    resetAddNewSlash(template);
-    $('.add-slash-form').slideUp("slow");
     return false;
   }
 });
