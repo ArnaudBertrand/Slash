@@ -3,21 +3,21 @@ Template.dedication.created = function(){
   this.autorun(function(){
     var currentDedication = Dedications.findOne({},{sort: {date: 1}});
     if(currentDedication && previousId !== currentDedication._id){
-      // Dedi text
-      var dediText = '<span>' + currentDedication.text;
-      if(currentDedication.author){
-        dediText += ' - <a class="link">' + currentDedication.author.username + '</a>';
-      }
-      dediText += '</span>';
       // Transition between slashs
-      $('.dedication-text').animate({opacity: 0}, 1000, function(){
-        $('.dedication-text').html(dediText).animate({opacity: 1}, 1000);
+      $('.dedication-text').hide(0, function(){
+        $('.dedication-text').fadeIn(1000);
       });
       // Avoid to repeat dedication on change
       previousId = currentDedication._id;
     }
   });
 }
+
+Template.dedication.helpers({
+  'currentDedication': function(){
+    return Dedications.findOne({},{sort: {date: 1}});
+  }
+})
 
 Template.dedication.events({
   'click .display-add-dedication': function(event,template){

@@ -2,7 +2,15 @@
   <div class="row-dedication">
     <div class="dedication col-md-11 col-sm-10 col-xs-8">
       <div class="dedication-text">
+        <span>{{currentDedication.text}}
+          {{#if currentDedication.author}}
+           - <a class="link">{{currentDedication.author.username}}</a>
+          {{/if}}
+        </span>
       </div>
+      <input type="hidden" name="text" value="{{currentDedication.text}}"/>
+      <input type="hidden" name="id" value="{{currentDedication._id}}"/>
+      <input type="hidden" name="author" value="{{currentDedication.author.username}}"/>
     </div>
 
     <div class="col-md-1 col-sm-2 col-xs-4 btn-show-add-dedication">
